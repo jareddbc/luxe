@@ -5,6 +5,7 @@ class CreateServices < ActiveRecord::Migration
       t.datetime :requested_at
       t.string :title
       t.text :special_request
+      t.boolean :completed
 
       t.timestamps null: false
     end
