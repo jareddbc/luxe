@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hotel_id_id: 
+  requested_at: 2015-09-17 13:51:08
+  title: MyString
+  special_request: MyText
+
+two:
+  hotel_id_id: 
+  requested_at: 2015-09-17 13:51:08
+  title: MyString
+  special_request: MyText
