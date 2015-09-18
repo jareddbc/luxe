@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         render "new"
       elsif user
         flash.now.alert = "Invalid Key"
-        render root
+        render 'root'
        end
     end
     # if hotel
