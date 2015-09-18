@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
@@ -9,9 +10,9 @@ Rails.application.routes.draw do
   # get "log_in" => "sessions#new", :as => "log_in"
   # get "sign_up" => "hotels#new", :as => "sign_up"
 
-  root :to => "hotels#new"
-
   resources :hotels
   resources :sessions
+
+  root "visitors#index"
 
 end
