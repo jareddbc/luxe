@@ -16,6 +16,16 @@ ActiveRecord::Schema.define(version: 20150917205721) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "guests", force: :cascade do |t|
+    t.string   "key"
+    t.integer  "hotel_id"
+    t.integer  "room_number"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "guests", ["hotel_id"], name: "index_guests_on_hotel_id", using: :btree
+
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -58,17 +68,7 @@ ActiveRecord::Schema.define(version: 20150917205721) do
 
   add_index "services", ["hotel_id"], name: "index_services_on_hotel_id", using: :btree
 
-  create_table "visitors", force: :cascade do |t|
-    t.string   "key"
-    t.integer  "hotel_id"
-    t.integer  "room_number"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "visitors", ["hotel_id"], name: "index_visitors_on_hotel_id", using: :btree
-
+  add_foreign_key "guests", "hotels"
   add_foreign_key "items", "menus"
   add_foreign_key "services", "hotels"
-  add_foreign_key "visitors", "hotels"
 end

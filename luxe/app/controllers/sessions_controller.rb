@@ -16,19 +16,19 @@ class SessionsController < ApplicationController
 
 
       hotel = Hotel.find_by_email(params[:email])
-      user = User.authenticate(params[:key])
+      user = User.find_by_email(params[:email])
       if hotel && hotel.authenticate(params[:password])
         session[:hotel_id] = hotel.id
         redirect_to '/hotels/show', :notice => "Logged in!"
-      elsif user
-        session[:user_id] = user.key
-        redirect_to root_url, :notice => "Logged in!"
-      elsif
+      # elsif user
+      #   session[:user_id] = user.key
+      #   redirect_to root_url, :notice => "Logged in!"
+      else
           flash.now.alert = "Invalid email or password"
           redirect_to '/login'
-      elsif user
-        flash.now.alert = "Invalid Key"
-        render 'root'
+      # elsif user
+      #   flash.now.alert = "Invalid Key"
+      #   render 'root'
       end
 
     end
