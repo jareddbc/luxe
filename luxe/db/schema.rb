@@ -19,13 +19,12 @@ ActiveRecord::Schema.define(version: 20150917205721) do
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "password_hash"
-    t.string   "password_salt"
+    t.string   "password_digest"
     t.text     "amenities"
     t.string   "location"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
+    t.boolean  "terms",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
