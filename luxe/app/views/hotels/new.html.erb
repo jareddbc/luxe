@@ -1,6 +1,6 @@
 <h1>Sign Up</h1>
 
-<%= form_for @hotel do |f| %>
+<%= form_for :hotel, url: '/hotels' do |f| %>
   <% if @hotel.errors.any? %>
     <div class="error_messages">
       <h2>Form is invalid</h2>

@@ -5,18 +5,33 @@ class HotelsController < ApplicationController
   end
 
   def create
-    @hotel = Hotel.new(params[:hotel])
-    if @hotel.save
-      redirect_to root_url, :notice => "Signed up!"
+    hotel = Hotel.new(hotel_params)
+    if hotel.save
+      session[:hotel_id] = hotel.id
+      redirect_to '/login', :notice => "Signed up!"
     else
-      render "new"
+      redirect_to '/signup'
+      # render "new"
     end
+  end
+
+  def index
+  end
+
+  def show
+    @hotel = Hotel.find_by(id: session[:hotel_id])
   end
 
   def edit
   end
 
   def destroy
+  end
+
+private
+
+  def hotel_params
+    params.require(:hotel).permit(:name, :email, :password, :password_confirmation, :amenities, :location)
   end
 
 end
