@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :hotels
   resources :sessions
 
-  root "home#index"
+  root "visitors#index"
 
 end
