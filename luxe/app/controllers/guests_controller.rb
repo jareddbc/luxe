@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
   def index
+    redirect_to hotel_path
   end
 
   def new
@@ -12,6 +13,8 @@ class GuestsController < ApplicationController
       @guest.key = @guest.last_name + @guest.phone[-4..-1]
       @guest.hotel_id = session[:hotel_id]
     end
+    p @guest
+    redirect_to :back
   end
 
   def show
