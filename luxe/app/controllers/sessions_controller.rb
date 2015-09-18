@@ -15,21 +15,21 @@ class SessionsController < ApplicationController
     #   redirect_to '/login'
 
 
-    hotel = Hotel.find_by_email(params[:email])
-    user = User.authenticate(params[:key])
-    if hotel && hotel.authenticate(params[:password])
-      session[:hotel_id] = hotel.id
-      redirect_to '/hotels/show', :notice => "Logged in!"
-    elsif user
-      session[:user_id] = user.key
-      redirect_to root_url, :notice => "Logged in!"
-    elsif
-        flash.now.alert = "Invalid email or password"
-        redirect_to '/login'
+      hotel = Hotel.find_by_email(params[:email])
+      user = User.authenticate(params[:key])
+      if hotel && hotel.authenticate(params[:password])
+        session[:hotel_id] = hotel.id
+        redirect_to '/hotels/show', :notice => "Logged in!"
+      elsif user
+        session[:user_id] = user.key
+        redirect_to root_url, :notice => "Logged in!"
+      elsif
+          flash.now.alert = "Invalid email or password"
+          redirect_to '/login'
       elsif user
         flash.now.alert = "Invalid Key"
         render 'root'
-       end
+      end
 
     end
 
@@ -57,6 +57,6 @@ class SessionsController < ApplicationController
   #     session[:hotel_id] = nil
   #     redirect_to root_url, :notice => "Logged out!"
 
-  # end
+  end
 
 end

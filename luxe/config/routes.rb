@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :hotels
   resources :sessions
-
-  root "visitors#index"
+  root "sessions#new"
+  # root "visitors#index"
 
 end
