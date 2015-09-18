@@ -1,2 +1,23 @@
 <%#= render "_forms" %>
 <%= link_to "Log out", logout_path %>
+<%= form_for :guest, url: guests_path do |f| %>
+
+  <p>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </p>
+  <p>
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </p>
+   <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :room_number %><br />
+    <%= f.text_field :room_number %>
+  </p>
+
+  <p class="button"><%= f.submit "Submit" %></p>
+<% end %>
