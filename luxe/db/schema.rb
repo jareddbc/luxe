@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150917205721) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -34,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150917205721) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "items", ["menu_id"], name: "index_items_on_menu_id"
+  add_index "items", ["menu_id"], name: "index_items_on_menu_id", using: :btree
 
   create_table "menus", force: :cascade do |t|
     t.string   "name"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20150917205721) do
   end
 
   create_table "services", force: :cascade do |t|
-    t.integer  "hotel_id_id"
+    t.integer  "hotel_id"
     t.datetime "requested_at"
     t.string   "title"
     t.text     "special_request"
@@ -53,7 +56,7 @@ ActiveRecord::Schema.define(version: 20150917205721) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "services", ["hotel_id_id"], name: "index_services_on_hotel_id_id"
+  add_index "services", ["hotel_id"], name: "index_services_on_hotel_id", using: :btree
 
   create_table "visitors", force: :cascade do |t|
     t.string   "key"
@@ -63,6 +66,9 @@ ActiveRecord::Schema.define(version: 20150917205721) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "visitors", ["hotel_id"], name: "index_visitors_on_hotel_id"
+  add_index "visitors", ["hotel_id"], name: "index_visitors_on_hotel_id", using: :btree
 
+  add_foreign_key "items", "menus"
+  add_foreign_key "services", "hotels"
+  add_foreign_key "visitors", "hotels"
 end
