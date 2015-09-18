@@ -5,13 +5,12 @@ class HotelsController < ApplicationController
   end
 
   def create
-    hotel = Hotel.new(hotel_params)
-    if hotel.save
-      session[:hotel_id] = hotel.id
+    @hotel = Hotel.new(hotel_params)
+    if @hotel.save
+      session[:hotel_id] = @hotel.id
       redirect_to '/login', :notice => "Signed up!"
     else
-      redirect_to '/signup'
-      # render "new"
+      redirect_to new_hotel_path
     end
   end
 

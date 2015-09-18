@@ -3,7 +3,11 @@ class CreateGuests < ActiveRecord::Migration
     create_table :guests do |t|
       t.string :key
       t.references :hotel, index: true, foreign_key: true
+      t.string :first_name
+      t.string :last_name
       t.integer :room_number
+      t.string :phone
+
 
       t.timestamps null: false
     end

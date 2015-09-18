@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(version: 20150917205721) do
   create_table "guests", force: :cascade do |t|
     t.string   "key"
     t.integer  "hotel_id"
+    t.string   "first_name"
+    t.string   "last_name"
     t.integer  "room_number"
+    t.string   "phone"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
