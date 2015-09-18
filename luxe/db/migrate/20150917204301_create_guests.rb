@@ -1,6 +1,6 @@
-class CreateVisitors < ActiveRecord::Migration
+class CreateGuests < ActiveRecord::Migration
   def change
-    create_table :visitors do |t|
+    create_table :guests do |t|
       t.string :key
       t.references :hotel, index: true, foreign_key: true
       t.integer :room_number
