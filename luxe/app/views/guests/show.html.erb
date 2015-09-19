@@ -33,12 +33,12 @@
     <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
       {{group.content}}
     </accordion-group>
+
     <accordion-group heading="Dynamic Body Content">
       <p>The body of the accordion group grows to fit the contents</p>
       <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
       <div ng-repeat="item in items">{{item}}</div>
     </accordion-group>
-
 
     <accordion-group heading="Custom template" template-url="group-template.html">
         <div ng-controller="DateTimePickerDemoCtrl" class="container">
@@ -60,7 +60,6 @@
 
     </div>
     </accordion-group>
-
 
     <accordion-group heading="Delete account" panel-class="panel-danger">
       <p>Please, to delete your account, click the button below</p>
