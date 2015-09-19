@@ -10,7 +10,7 @@ module TwilioHelper
         $client.messages.create(
         from: '+12254429126',
         to: '+18188088325',
-        body: 'Hey there!'
+        body: "Thank you for staying at the #{@hotel.name}, please login here: goo.gl/V3VkvX \n and input this Guest Token: #{@guest.key} \n to start living LUXE. \n Have a great stay!"
     )
   end
 end
