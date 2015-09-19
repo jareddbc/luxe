@@ -19,13 +19,16 @@ class GuestsController < ApplicationController
       @users_hotel_id = @guest.hotel_id
       @hotel = Hotel.find_by(params[:hotel_id])
       TwilioWorker.perform(twilio)
+
     end
     p @guest
     redirect_to :back
   end
 
   def show
-    @guest = Guest.find_by(key: params[:key])
+    @guest = Guest.find(params[:id])
+    @services = Service.where(hotel_id: @guest.hotel_id)
+    @menu = Menu.all
   end
 
   def destroy
