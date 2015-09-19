@@ -4,9 +4,8 @@ class CreateHotels < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :password_digest
-      # t.string :password_salt
+      t.string :address
       t.text :amenities
-      t.string :location
       t.boolean :terms, default: false
 
       t.timestamps null: false
