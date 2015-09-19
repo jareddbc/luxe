@@ -1,4 +1,6 @@
 class GuestsController < ApplicationController
+  include TwilioHelper
+
   def index
   end
 
@@ -11,7 +13,8 @@ class GuestsController < ApplicationController
     if @guest.save
       @guest.key = @guest.last_name + @guest.phone[-4..-1]
       @guest.hotel_id = session[:hotel_id]
-
+      @client
+      auth_token_txter
     end
   end
 
