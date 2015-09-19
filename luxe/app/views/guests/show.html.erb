@@ -1,1 +1,19 @@
-guests.show.html.erb
+<div>
+  <h2>Welcome <%= @guest.first_name %>!</h2>
+  <h4>Are you living Luxe today?</h4>
+</div>
+
+</br>
+
+<div>
+  <% @services.each do |service| %>
+    <p><%= service.title %></p>
+    <p><%= service.special_request %></p>
+    <p><%= service.starts_at_date %></p>
+    <p><%= service.starts_at_time %></p>
+  <% end %>
+</div>
+
+</br>
+
+

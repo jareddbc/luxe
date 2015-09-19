@@ -61,7 +61,8 @@ ActiveRecord::Schema.define(version: 20150917205721) do
 
   create_table "services", force: :cascade do |t|
     t.integer  "hotel_id"
-    t.datetime "requested_at"
+    t.datetime "starts_at_date"
+    t.datetime "starts_at_time"
     t.string   "title"
     t.text     "special_request"
     t.boolean  "completed"

@@ -19,6 +19,9 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find_by(id: session[:hotel_id])
+    @services = Service.all
+    @guests = Guest.all
+    @menu = Menu.all
   end
 
   def edit
