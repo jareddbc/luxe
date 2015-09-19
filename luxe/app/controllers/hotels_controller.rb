@@ -25,9 +25,6 @@ class HotelsController < ApplicationController
   end
 
   def destroy
-    # sessions[:hotel_id] = nil
-    # p sessions[:hotel_id]
-    redirect_to '/login', :notice => "Logged out!"
   end
 
 private

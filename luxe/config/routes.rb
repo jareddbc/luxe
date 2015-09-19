@@ -2,8 +2,11 @@ Rails.application.routes.draw do
 
 
   get '/login' => 'sessions#hotel'
-  get '/' => 'sessions#guest'
   post '/login' => 'sessions#create'
+
+  get '/' => 'sessions#guest'
+  post '/' => 'sessions#create'
+
   get '/logout' => 'sessions#destroy'
   get '/signup' => 'hotels#new'
   post '/hotels' => 'hotels#create'
