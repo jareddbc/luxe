@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
       guest = Guest.find_by_key(params[:key])
       if guest
         session[:guest_id] = guest.id
-        redirect_to guest_path id: :guest_id
+        redirect_to guest_path id: session[:guest_id]
       else
           flash.now.alert = "Invalid Key"
           redirect_to '/'
