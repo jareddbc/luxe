@@ -2,6 +2,7 @@ class GuestsController < ApplicationController
   include TwilioHelper
 
   def index
+    redirect_to hotel_path
   end
 
   def new
@@ -16,6 +17,8 @@ class GuestsController < ApplicationController
       @client
       auth_token_txter
     end
+    p @guest
+    redirect_to :back
   end
 
   def show
