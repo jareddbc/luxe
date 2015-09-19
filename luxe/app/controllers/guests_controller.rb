@@ -14,6 +14,7 @@ class GuestsController < ApplicationController
     if @guest.save
       @guest.key = @guest.last_name + @guest.phone[-4..-1]
       @guest.hotel_id = session[:hotel_id]
+      @guest.save
       @client
       auth_token_txter
     end
