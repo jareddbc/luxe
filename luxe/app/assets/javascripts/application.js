@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular/angular
 //= require turbolinks
 //= require_tree .
+//= require serviceform
+
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
