@@ -18,6 +18,7 @@ class GuestsController < ApplicationController
       @client
       @users_hotel_id = @guest.hotel_id
       @hotel = Hotel.find_by(params[:hotel_id])
+      TwilioWorker.perform(twilio)
 
     end
     p @guest
