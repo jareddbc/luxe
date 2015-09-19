@@ -17,10 +17,11 @@ Rails.application.routes.draw do
   # get "log_in" => "sessions#new", :as => "log_in"
   # get "sign_up" => "hotels#new", :as => "sign_up"
   resources :guests
-  resources :hotels do
-    resources :services
-  end
   resources :sessions
+  resources :hotels
+  resources :services
+  resources :menu
+
   root "sessions#new"
 
 end
