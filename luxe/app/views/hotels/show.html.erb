@@ -12,26 +12,24 @@
 </br>
 
 <div>
+  <h2>Our Menu:</h2>
   <% @menu.each do |menu_item| %>
-  <h2><%= @menu_item.name %></h2>
-  <h3><%= @menu_item.description %></h3>
+  <h3><%= menu_item.name %></h3>
+  <h4><%= menu_item.description %></h4>
+  <% end %>
 </div>
 
 </br>
 
 <div>
   <h4>Menu:</h4>
-  <%= form_for :menu, url: menu_index_path do |f| %>
+  <%= form_for :menus, url: menu_index_path do |f| %>
     <p>
-      <%= f.label :name %><br />
+      <%= f.label :name %>
       <%= f.text_field :name %>
     </p>
     <p>
-      <%= f.label :description %><br />
-      <%= f.text_field :description %>
-    </p>
-      <p>
-      <%= f.label :description %><br />
+      <%= f.label :description %>
       <%= f.text_field :description %>
     </p>
     <p class="button"><%= f.submit "Submit" %></p>

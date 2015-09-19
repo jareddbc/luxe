@@ -25,7 +25,9 @@ class GuestsController < ApplicationController
   end
 
   def show
-    @guest = Guest.find_by(key: params[:key])
+    @guest = Guest.find(params[:id])
+    @services = Service.where(hotel_id: @guest.hotel_id)
+    @menu = Menu.all
   end
 
   def destroy
