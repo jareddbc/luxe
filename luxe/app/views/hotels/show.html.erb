@@ -1,23 +1,72 @@
-<%#= render "_forms" %>
 <%= link_to "Log out", logout_path %>
-<%= form_for :guest, url: guests_path do |f| %>
 
-  <p>
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </p>
-  <p>
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </p>
-   <p>
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone %>
-  </p>
-  <p>
-    <%= f.label :room_number %><br />
-    <%= f.text_field :room_number %>
-  </p>
 
-  <p class="button"><%= f.submit "Submit" %></p>
-<% end %>
+
+<div>
+  <%= @hotel.id %>
+  <h2><%= @hotel.name %></h2>
+  <h3><%= @hotel.address %></h3>
+  <h3><%= @hotel.amenities %></h3>
+</div>
+
+</br>
+
+<div>
+  <h2>Our Menu:</h2>
+  <% @menu.each do |menu_item| %>
+  <h3><%= menu_item.name %></h3>
+  <h4><%= menu_item.description %></h4>
+  <% end %>
+</div>
+
+</br>
+
+<div>
+  <h4>Menu:</h4>
+  <%= form_for :menus, url: menu_index_path do |f| %>
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </p>
+    <p class="button"><%= f.submit "Submit" %></p>
+  <% end %>
+</div>
+
+</br>
+
+<div>
+  <% @guests.each do |guest| %>
+    <p><b>Name: </b><%= guest.first_name %> <%= guest.last_name %></p>
+    <p><b>Phone: </b><%= guest.phone %></p>
+    <p><b>Room Number: </b><%= guest.room_number %></p>
+    <% end %>
+</div>
+
+</br>
+
+<div>
+  <h4>New Guest:</h4>
+  <%= form_for :guest, url: guests_path do |f| %>
+    <p>
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </p>
+     <p>
+      <%= f.label :phone %><br />
+      <%= f.text_field :phone %>
+    </p>
+    <p>
+      <%= f.label :room_number %><br />
+      <%= f.text_field :room_number %>
+    </p>
+    <p class="button"><%= f.submit "Submit" %></p>
+  <% end %>
+</div>

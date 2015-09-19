@@ -1,4 +1,4 @@
-<h1>Sign Up</h1>
+<h1>Hotel Sign Up</h1>
 
 <%= form_for :hotel, url: '/hotels' do |f| %>
   <% if @hotel.errors.any? %>
@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </p>
   <p>
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </p>
@@ -31,10 +35,6 @@
     <%= f.label :amenities %><br />
     <%= f.text_field :amenities %>
   </p>
-    <p>
-      <%= f.label :location %><br />
-      <%= f.text_field :location %>
-    </p>
   <p class="button"><%= f.submit %></p>
 <% end %>
 

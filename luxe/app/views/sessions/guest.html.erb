@@ -1,8 +1,8 @@
-<%= form_for :guest, url: '/sessions/guests' do |f| %>
 
+<%= form_tag '/' do %>
   <p>
-    <%= f.label :Key %><br />
-    <%= f.text_field :key %>
+    <%= label_tag :key %><br />
+    <%= text_field_tag :key %>
   </p>
-  <p class="button"><%= f.submit %></p>
+  <p class="button"><%= submit_tag %></p>
 <% end %>

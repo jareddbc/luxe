@@ -1,4 +1,6 @@
 class GuestsController < ApplicationController
+  include TwilioHelper
+
   def index
     redirect_to hotel_path
   end
@@ -12,6 +14,10 @@ class GuestsController < ApplicationController
     if @guest.save
       @guest.key = @guest.last_name + @guest.phone[-4..-1]
       @guest.hotel_id = session[:hotel_id]
+      @guest.save
+      @client
+      @users_hotel_id = @guest.hotel_id
+      @hotel = Hotel.find_by(params[:hotel_id])
 
     end
     p @guest
@@ -19,7 +25,9 @@ class GuestsController < ApplicationController
   end
 
   def show
-    @guest = Guest.find_by(key: params[:key])
+    @guest = Guest.find(params[:id])
+    @services = Service.where(hotel_id: @guest.hotel_id)
+    @menu = Menu.all
   end
 
   def destroy

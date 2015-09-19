@@ -10,7 +10,7 @@ class HotelsController < ApplicationController
       session[:hotel_id] = @hotel.id
       redirect_to '/login', :notice => "Signed up!"
     else
-      redirect_to new_hotel_path
+      redirect_to signup_path
     end
   end
 
@@ -19,6 +19,9 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find_by(id: session[:hotel_id])
+    @services = Service.all
+    @guests = Guest.all
+    @menu = Menu.all
   end
 
   def edit
