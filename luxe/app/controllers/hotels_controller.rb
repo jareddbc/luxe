@@ -10,7 +10,7 @@ class HotelsController < ApplicationController
       session[:hotel_id] = @hotel.id
       redirect_to '/login', :notice => "Signed up!"
     else
-      redirect_to new_hotel_path
+      redirect_to signup_path
     end
   end
 
@@ -25,6 +25,9 @@ class HotelsController < ApplicationController
   end
 
   def destroy
+    # sessions[:hotel_id] = nil
+    # p sessions[:hotel_id]
+    redirect_to '/login', :notice => "Logged out!"
   end
 
 private

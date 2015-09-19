@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    p params
      if params[:email] != ""
       hotel = Hotel.find_by_email(params[:email])
       if hotel && hotel.authenticate(params[:password])
@@ -28,10 +29,11 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-
+    p "***********************"
+    p session[:hotel_id]
     session[:hotel_id] = nil
+    p session[:hotel_id]
     redirect_to '/login', :notice => "Logged out!"
-
   end
 
 end
