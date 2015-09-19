@@ -1,5 +1,6 @@
-<%#= render "_forms" %>
 <%= link_to "Log out", logout_path %>
+
+<%= @hotel.id %>
 <%= form_for :guest, url: guests_path do |f| %>
 
   <p>
