@@ -15,8 +15,10 @@ class GuestsController < ApplicationController
       @guest.key = @guest.last_name + @guest.phone[-4..-1]
       @guest.hotel_id = session[:hotel_id]
       @guest.save
-      # @client
-      auth_token_txter
+      @client
+      @users_hotel_id = @guest.hotel_id
+      @hotel = Hotel.find_by(params[:hotel_id])
+
     end
     p @guest
     redirect_to :back
