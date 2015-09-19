@@ -16,6 +16,8 @@ class GuestsController < ApplicationController
       @guest.hotel_id = session[:hotel_id]
       @guest.save
       @client
+      @users_hotel_id = @guest.hotel_id
+      @hotel = Hotel.find_by(params[:hotel_id])
       auth_token_txter
     end
     p @guest
