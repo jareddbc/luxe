@@ -11,7 +11,7 @@
       </div>
       <div class="panel-collapse collapse" collapse="!isOpen">
         <div class="panel-body" style="text-align: right" ng-transclude></div>
-      </div>
+      </div> 
     </div>
   </script>
 
@@ -38,9 +38,30 @@
       <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
       <div ng-repeat="item in items">{{item}}</div>
     </accordion-group>
+
+
     <accordion-group heading="Custom template" template-url="group-template.html">
-      Hello
+        <div ng-controller="DateTimePickerDemoCtrl" class="container">
+
+    <br>
+      <pre>Sceduling service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre>
+
+      <datetimepicker min-date="minDate" hour-step="hourStep" 
+      minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+      date-format="dd-MMM-yyyy" date-options="dateOptions"
+      date-disabled="disabled(date, mode)" 
+      readonly-date="false"
+      readonly-time="false"></datetimepicker>
+      
+      <hr>
+      <div class="form-group">
+        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+      </div>
+
+    </div>
     </accordion-group>
+
+
     <accordion-group heading="Delete account" panel-class="panel-danger">
       <p>Please, to delete your account, click the button below</p>
       <button class="btn btn-danger">Delete</button>
