@@ -26,6 +26,7 @@ class GuestsController < ApplicationController
 
       TwilioWorker.perform_async(phone_twilio, name_twilio, hotel_name_twilio, key_twilio)
     end
+    
     p @guest
     redirect_to :back
   end
