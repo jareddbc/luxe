@@ -22,6 +22,7 @@ class MenuController < ApplicationController
   def edit
     @menu = Menu.find(params[:id])
     @menu.update_attributes(:name => params[:name], :description => params[:description])
+    redirect_to guest_path
   end
 
   def destroy

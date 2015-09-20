@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20150917205721) do
   create_table "menus", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
-    t.integer  "services_id"
     t.integer  "hotel_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -70,9 +69,10 @@ ActiveRecord::Schema.define(version: 20150917205721) do
     t.string   "title"
     t.text     "special_request"
     t.integer  "guest_id"
-    t.boolean  "completed"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "menu_id"
+    t.boolean  "completed",       default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   add_index "services", ["guest_id"], name: "index_services_on_guest_id", using: :btree

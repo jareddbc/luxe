@@ -63,9 +63,9 @@
 
 <div>
   <% @guests.each do |guest| %>
+    <p><b>Room Number: </b><%= guest.room_number %></p>
     <p><b>Name: </b><%= guest.first_name %> <%= guest.last_name %></p>
     <p><b>Phone: </b><%= guest.phone %></p>
-    <p><b>Room Number: </b><%= guest.room_number %></p>
   <% end %>
 </div>
 
