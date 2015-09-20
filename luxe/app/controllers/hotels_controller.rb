@@ -19,9 +19,9 @@ class HotelsController < ApplicationController
 
   def show
     @hotel = Hotel.find_by(id: session[:hotel_id])
-    @services = Service.all
-    @guests = Guest.all
-    @menu = Menu.all
+    @services = Service.where(hotel_id: @hotel.id)
+    @guests = Guest.where(hotel_id: @hotel.id)
+    @menus = Menu.where(hotel_id: @hotel.id)
   end
 
   def edit
@@ -33,7 +33,7 @@ class HotelsController < ApplicationController
 private
 
   def hotel_params
-    params.require(:hotel).permit(:name, :email, :password, :password_confirmation, :amenities, :location)
+    params.require(:hotel).permit(:name, :email, :password, :password_confirmation, :amenities, :address)
   end
 
 end
