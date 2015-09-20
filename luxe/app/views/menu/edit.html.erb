@@ -1,0 +1,18 @@
+<!-- Currently not working -->
+
+<div>
+  <h4>Menu:</h4>
+  <%= form_for :menu, url: edit_menu_path do |f| %>
+    <p>
+      <%= f.label :name value=@menu.name %>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :description %>
+      <%= f.text_field :description %>
+    </p>
+
+
+    <p class="button"><%= f.submit "Submit" %></p>
+  <% end %>
+</div>
