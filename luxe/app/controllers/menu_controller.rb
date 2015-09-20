@@ -9,19 +9,19 @@ class MenuController < ApplicationController
 
   def create
     @menu = Menu.new(menu_params)
-    if @menu.save
-      # @menu.hotel_id = session[:hotel_id]
-      # @menu.save
+    @menu.save
+      @menu.hotel_id = session[:hotel_id]
+      @menu.save
       # @client
       # auth_token_txter
-    end
+      p "!!!!!!!!!!!!!!!!!!!!!"
     p @menu
     redirect_to :back
   end
 
-  def show
-    @menu = Menu.find_by(id: params[:id])
-  end
+  # def show
+  #   @menus = Menu.find_by(hotel_id : params[:id])
+  # end
 
   def edit
   end
@@ -35,6 +35,6 @@ class MenuController < ApplicationController
 
   def menu_params
     p params
-    params.require(:menus).permit(:name, :description)
+    params.require(:menu).permit(:name, :description)
   end
 end
