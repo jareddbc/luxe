@@ -28,7 +28,8 @@ class GuestsController < ApplicationController
   def show
     @guest = Guest.find(params[:id])
     @services = Service.where(hotel_id: @guest.hotel_id)
-    @menu = Menu.all
+    @hotel = Hotel.find_by(id: @guest.hotel_id)
+    @menus = Menu.where(hotel_id: @hotel.id)
   end
 
   def destroy

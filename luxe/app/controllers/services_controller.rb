@@ -10,12 +10,11 @@ class ServicesController < ApplicationController
   def create
     @service = Service.new(service_params)
     if @service.save
-      @service.hotel_id = session[:hotel_id]
+      @guest = Guest.find(session[:guest_id])
+      @service.hotel_id = @guest.hotel_id
+      @service.guest_id = session[:guest_id]
       @service.save
-      # @client
-      # auth_token_txter
     end
-    p @service
     redirect_to :back
   end
 

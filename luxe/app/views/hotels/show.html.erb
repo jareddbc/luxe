@@ -13,7 +13,8 @@
 
 <div>
   <h2>Our Menu:</h2>
-  <% @menu.each do |menu_item| %>
+
+  <% @menus.each do |menu_item| %>
   <h3><%= menu_item.name %></h3>
   <h4><%= menu_item.description %></h4>
   <% end %>
@@ -23,7 +24,7 @@
 
 <div>
   <h4>Menu:</h4>
-  <%= form_for :menus, url: menu_index_path do |f| %>
+  <%= form_for :menu, url: menu_index_path do |f| %>
     <p>
       <%= f.label :name %>
       <%= f.text_field :name %>
@@ -32,7 +33,26 @@
       <%= f.label :description %>
       <%= f.text_field :description %>
     </p>
+
+
     <p class="button"><%= f.submit "Submit" %></p>
+  <% end %>
+</div>
+
+</br>
+
+<div>
+
+  <% @services.each do |service| %>
+   <% @guests.each do |guest| %>
+    <% if service.guest_id == guest.id %>
+      <h5>Room: <%= guest.room_number %></h5>
+    <% end %>
+    <p><%= service.title %></p>
+    <p><%= service.special_request %></p>
+    <p><%= service.starts_at_date %></p>
+    <p><%= service.starts_at_time %></p>
+    <% end %>
   <% end %>
 </div>
 
@@ -43,7 +63,7 @@
     <p><b>Name: </b><%= guest.first_name %> <%= guest.last_name %></p>
     <p><b>Phone: </b><%= guest.phone %></p>
     <p><b>Room Number: </b><%= guest.room_number %></p>
-    <% end %>
+  <% end %>
 </div>
 
 </br>

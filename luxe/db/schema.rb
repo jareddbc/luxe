@@ -56,9 +56,12 @@ ActiveRecord::Schema.define(version: 20150917205721) do
     t.string   "name"
     t.string   "description"
     t.integer  "services_id"
+    t.integer  "hotel_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "menus", ["hotel_id"], name: "index_menus_on_hotel_id", using: :btree
 
   create_table "services", force: :cascade do |t|
     t.integer  "hotel_id"
@@ -66,14 +69,18 @@ ActiveRecord::Schema.define(version: 20150917205721) do
     t.datetime "starts_at_time"
     t.string   "title"
     t.text     "special_request"
+    t.integer  "guest_id"
     t.boolean  "completed"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
 
+  add_index "services", ["guest_id"], name: "index_services_on_guest_id", using: :btree
   add_index "services", ["hotel_id"], name: "index_services_on_hotel_id", using: :btree
 
   add_foreign_key "guests", "hotels"
   add_foreign_key "items", "menus"
+  add_foreign_key "menus", "hotels"
+  add_foreign_key "services", "guests"
   add_foreign_key "services", "hotels"
 end
