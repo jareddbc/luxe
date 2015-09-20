@@ -18,7 +18,7 @@ class GuestsController < ApplicationController
       @client
       @users_hotel_id = @guest.hotel_id
       @hotel = Hotel.find_by(params[:hotel_id])
-      TwilioWorker.perform(twilio)
+      # TwilioWorker.perform(twilio)
 
     end
     p @guest
@@ -29,6 +29,7 @@ class GuestsController < ApplicationController
     @guest = Guest.find(params[:id])
     @services = Service.where(hotel_id: @guest.hotel_id)
     @menu = Menu.all
+    #render :show, :layout => false
   end
 
   def destroy

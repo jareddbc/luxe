@@ -1,6 +1,6 @@
+<html ng-app="plunker">
 
-
-<div ng-controller="AccordionDemoCtrl">
+	<div ng-controller="AccordionDemoCtrl">
   <script type="text/ng-template" id="group-template.html">
     <div class="panel {{panelClass || 'panel-default'}}">
       <div class="panel-heading">
@@ -11,7 +11,7 @@
       </div>
       <div class="panel-collapse collapse" collapse="!isOpen">
         <div class="panel-body" style="text-align: right" ng-transclude></div>
-      </div> 
+      </div>
     </div>
   </script>
 
@@ -27,10 +27,13 @@
     </label>
   </div>
   <accordion close-others="oneAtATime">
+
     <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
       This content is straight in the template.
     </accordion-group>
+
     <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
+
       {{group.content}}
     </accordion-group>
 
@@ -41,90 +44,42 @@
     </accordion-group>
 
     <accordion-group heading="Custom template" template-url="group-template.html">
-        <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
-    <br>
-      <pre>Sceduling service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></pre>
+	  	<div ng-controller="DateTimePickerDemoCtrl" class="container">
 
-      <datetimepicker min-date="minDate" hour-step="hourStep" 
-      minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
-      date-format="dd-MMM-yyyy" date-options="dateOptions"
-      date-disabled="disabled(date, mode)" 
-      readonly-date="false"
-      readonly-time="false"></datetimepicker>
-      
-      <hr>
-      <div class="form-group">
-        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-      </div>
+	    <br>
+	    
+	    
+	      <h4>Sceduling service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
 
-    </div>
+	      <datetimepicker min-date="minDate" hour-step="hourStep" 
+	      minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+	      date-format="dd-MMM-yyyy" date-options="dateOptions"
+	      date-disabled="disabled(date, mode)" 
+	      readonly-date="false"
+	      readonly-time="false"></datetimepicker>
+	      
+	      <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+	      </div>
+
+	    </div>
+
     </accordion-group>
 
     <accordion-group heading="Delete account" panel-class="panel-danger">
       <p>Please, to delete your account, click the button below</p>
       <button class="btn btn-danger">Delete</button>
     </accordion-group>
+
     <accordion-group is-open="status.open">
       <accordion-heading>
         I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
       </accordion-heading>
       This is just some content to illustrate fancy headings.
     </accordion-group>
+
   </accordion>
 </div>
 
-
-<div>
-  <h2>Welcome <%= @guest.first_name %>!</h2>
-  <h4>Are you living Luxe today?</h4>
-</div>
-
-</br>
-
-<div>
-  <h3>Our Menu:</h3>
-  <% @menu.each do |menu_item| %>
-  <h4></b><%= menu_item.name %></b></h4>
-  <h4><%= menu_item.description %></h4>
-  <% end %>
-</div>
-
-</br>
-
-<div>
-  <h3>Requested Services:</h3>
-  <% @services.each do |service| %>
-    <p><%= service.title %></p>
-    <p><%= service.special_request %></p>
-    <p><%= service.starts_at_date %></p>
-    <p><%= service.starts_at_time %></p>
-  <% end %>
-</div>
-
-</br>
-
-<div>
-  <h4>Services:</h4>
-  <%= form_for :service, url: services_path do |f| %>
-    <p>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </p>
-    <p>
-      <%= f.label :starts_at_date %>
-      <%= f.date_select :starts_at_date %>
-    </p>
-    <p>
-      <%= f.label :starts_at_time %>
-      <%= f.time_select :starts_at_time %>
-    </p>
-    <p>
-      <%= f.label :special_request %>
-      <%= f.text_area :special_request %>
-    </p>
-    <p class="button"><%= f.submit "Submit" %></p>
-  <% end %>
-</div>
-
+</html>
 
