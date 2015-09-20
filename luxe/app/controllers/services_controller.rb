@@ -23,11 +23,20 @@ class ServicesController < ApplicationController
   end
 
   def edit
+    @service = Service.find(params[:id])
+  end
+
+  def update
+    @guest = Guest.find(session[:guest_id])
+    @service = Service.find(params[:id])
+    @service.update_attributes(:title => params[:title], :starts_at_date => params[:starts_at_date], :starts_at_time => params[:starts_at_time], :special_request => params[:special_request])
+    redirect_to @guest
   end
 
   def destroy
     @service = Service.find_by(id: params[:id])
     @service.destroy
+    redirect_to :back
   end
 
   private

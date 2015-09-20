@@ -77,16 +77,20 @@
 
 <div>
   <h3>Requested Services:</h3>
-
+</div>
+<div>
   <% @services.each do |service| %>
-
-    <p><%= service.title %></p>
+    <p><h4><%= service.title %></h4></p>
     <p><%= service.special_request %></p>
     <p><%= service.starts_at_date %></p>
     <p><%= service.starts_at_time %></p>
-
+    <% if !service.title.nil? %>
+      <%= link_to "Edit", edit_service_path(service) %>
+      <%= link_to 'Delete', service_path(service), :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
   <% end %>
 </div>
+
 
 </br>
 

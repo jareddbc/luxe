@@ -1,0 +1,37 @@
+<div>
+  <h3>Edit your Reservation</h3>
+</div>
+
+</br>
+
+<div>
+  <p><%= @service.title %></p>
+  <p><%= @service.starts_at_date %></p>
+  <p><%= @service.starts_at_time %></p>
+  <p><%= @service.special_request %></p>
+</div>
+
+</br>
+
+<div>
+  <h4>New Reservation:</h4>
+  <%= form_for @service do |f| %>
+    <p>
+      <%= f.label :title %>:
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :starts_at_date %>:
+      <%= f.date_select :starts_at_date %>
+    </p>
+    <p>
+      <%= f.label :starts_at_time %>:
+      <%= f.time_select :starts_at_time %>
+    </p>
+    <p>
+      <%= f.label :special_request %>:
+      <%= f.text_area :special_request %>
+    </p>
+    <p class="button"><%= f.submit "Submit" %></p>
+  <% end %>
+</div>
