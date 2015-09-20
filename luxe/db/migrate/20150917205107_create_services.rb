@@ -6,7 +6,9 @@ class CreateServices < ActiveRecord::Migration
       t.datetime :starts_at_time
       t.string :title
       t.text :special_request
-      t.boolean :completed
+      t.references :guest, index: true, foreign_key: true
+      t.references :menu
+      t.boolean :completed, default: false
 
       t.timestamps null: false
     end

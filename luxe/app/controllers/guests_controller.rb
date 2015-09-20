@@ -18,9 +18,15 @@ class GuestsController < ApplicationController
       @client
       @users_hotel_id = @guest.hotel_id
       @hotel = Hotel.find_by(params[:hotel_id])
-      # TwilioWorker.perform(twilio)
+      "@@" * 88
+      phone_twilio = @guest.phone
+      name_twilio = @guest.first_name
+      hotel_name_twilio = @hotel.name
+      key_twilio = @guest.key
 
+      TwilioWorker.perform_async(phone_twilio, name_twilio, hotel_name_twilio, key_twilio)
     end
+    
     p @guest
     redirect_to :back
   end
@@ -28,8 +34,8 @@ class GuestsController < ApplicationController
   def show
     @guest = Guest.find(params[:id])
     @services = Service.where(hotel_id: @guest.hotel_id)
-    @menu = Menu.all
-    #render :show, :layout => false
+    @hotel = Hotel.find_by(id: @guest.hotel_id)
+    @menus = Menu.where(hotel_id: @hotel.id)
   end
 
   def destroy

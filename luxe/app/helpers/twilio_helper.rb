@@ -9,8 +9,8 @@ module TwilioHelper
   def auth_token_txter
         $client.messages.create(
         from: '+12254429126',
-        to: '+18188088325',
-        body: "Hello #{@guest.first_name}, \n thank you for staying at the #{@hotel.name}, please login here: goo.gl/V3VkvX \n and input this Guest Token: #{@guest.key} \n to start living LUXE. \n Have a great stay!"
+        to: "+1#{phone_twilio}",
+        body: "Hello #{name_twilio}, \n thank you for staying at the #{hotel_name_twilio}, please login here: goo.gl/V3VkvX \n and input this Guest Token: #{key_twilio} \n to start living LUXE. \n Have a great stay!"
     )
   end
 end
