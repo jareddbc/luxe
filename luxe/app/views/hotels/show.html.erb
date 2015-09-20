@@ -17,9 +17,12 @@
   <% @menus.each do |menu_item| %>
   <h3><%= menu_item.name %></h3>
   <h4><%= menu_item.description %></h4>
+    <% if !menu_item.name.nil? %>
+      <%= link_to "Edit", edit_menu_path(menu_item) %>
+      <%= link_to 'Delete', menu_path(menu_item), :confirm => 'Are you sure?', :method => :delete %>
+    <% end %>
   <% end %>
 </div>
-
 </br>
 
 <div>

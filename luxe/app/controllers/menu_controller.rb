@@ -12,23 +12,23 @@ class MenuController < ApplicationController
     @menu.save
       @menu.hotel_id = session[:hotel_id]
       @menu.save
-      # @client
-      # auth_token_txter
-      p "!!!!!!!!!!!!!!!!!!!!!"
-    p @menu
     redirect_to :back
   end
 
-  # def show
-  #   @menus = Menu.find_by(hotel_id : params[:id])
-  # end
+  def show
+    @menus = Menu.find_by(hotel_id: params[:id])
+  end
 
   def edit
+    @menu = Menu.find(params[:id])
+    @menu.update_attributes(:name => params[:name], :description => params[:description])
   end
 
   def destroy
+     p params
     @menu = Menu.find_by(id: params[:id])
     @menu.destroy
+    redirect_to :back
   end
 
   private
