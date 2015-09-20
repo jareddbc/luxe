@@ -16,6 +16,11 @@
 //= require turbolinks
 //= require_tree .
 //= require serviceform
+//= require datetimepicker
+//= require datetimeoptions
+
+
+
 
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
 @import "bootstrap-sass-official/assets/stylesheets/bootstrap";

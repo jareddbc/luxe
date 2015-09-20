@@ -1,6 +1,19 @@
 <html ng-app="plunker">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="javascripts/datetimeoptions.js"></script>
+    <script src="javascripts/datetimepicker.js"></script>
 
-	<div ng-controller="AccordionDemoCtrl">
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Plugin files -->
+    <!-- script src="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.js"></script -->
+    <link href="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.css" type="text/css" rel="stylesheet">  
+  </head>
+  <body>
+
+<div ng-controller="AccordionDemoCtrl">
+
   <script type="text/ng-template" id="group-template.html">
     <div class="panel {{panelClass || 'panel-default'}}">
       <div class="panel-heading">
@@ -26,6 +39,7 @@
       Open only one at a time
     </label>
   </div>
+
   <accordion close-others="oneAtATime">
 
     <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
@@ -33,7 +47,6 @@
     </accordion-group>
 
     <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-
       {{group.content}}
     </accordion-group>
 
@@ -44,47 +57,60 @@
     </accordion-group>
 
     <accordion-group heading="Custom template" template-url="group-template.html">
+      <div ng-controller="DateTimePickerDemoCtrl" class="container">
+      
+        <br>
+        
+        <h4>Scheduling service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
 
-	  	<div ng-controller="DateTimePickerDemoCtrl" class="container">
+        <datetimepicker min-date="minDate" hour-step="hourStep" 
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        date-format="dd-MMM-yyyy" date-options="dateOptions"
+        date-disabled="disabled(date, mode)" 
+        readonly-date="false"
+        readonly-time="false"></datetimepicker>
+      
 
-	    <br>
-	    
-	    
-	      <h4>Sceduling service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+<!--</div>-->
 
-	      <datetimepicker min-date="minDate" hour-step="hourStep" 
-	      minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
-	      date-format="dd-MMM-yyyy" date-options="dateOptions"
-	      date-disabled="disabled(date, mode)" 
-	      readonly-date="false"
-	      readonly-time="false"></datetimepicker>
-	      
-	      <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-	      </div>
-
-	    </div>
-
+      </div>
     </accordion-group>
 
     <accordion-group heading="Delete account" panel-class="panel-danger">
       <p>Please, to delete your account, click the button below</p>
       <button class="btn btn-danger">Delete</button>
     </accordion-group>
-
+    
     <accordion-group is-open="status.open">
       <accordion-heading>
         I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
       </accordion-heading>
       This is just some content to illustrate fancy headings.
     </accordion-group>
-
-
+  
   </accordion>
+
+</div>
+
+</body>
+</html>
+
+
+
+
+
+<div>
+  <h2>Welcome <%= @guest.first_name %>!</h2>
+  <h4>Are you living Luxe today?</h4>
+</div>
+
+</br>
 
 <div>
   <h3>Our Menu:</h3>
-  <% @menus.each do |menu_item| %>
-  <h4><a href="#"><%= menu_item.name %></a></h4>
+  <% @menu.each do |menu_item| %>
+  <h4></b><%= menu_item.name %></b></h4>
   <h4><%= menu_item.description %></h4>
   <% end %>
 </div>
@@ -93,46 +119,37 @@
 
 <div>
   <h3>Requested Services:</h3>
-</div>
-<div>
   <% @services.each do |service| %>
-    <p><h4><%= service.title %></h4></p>
+    <p><%= service.title %></p>
     <p><%= service.special_request %></p>
     <p><%= service.starts_at_date %></p>
     <p><%= service.starts_at_time %></p>
-    <% if !service.title.nil? %>
-      <%= link_to "Edit", edit_service_path(service) %>
-      <%= link_to 'Delete', service_path(service), :confirm => 'Are you sure?', :method => :delete %>
-    <% end %>
   <% end %>
 </div>
-
 
 </br>
 
 <div>
-  <h4>Requests:</h4>
+  <h4>Services:</h4>
   <%= form_for :service, url: services_path do |f| %>
     <p>
-      <%= f.label :title %>:
+      <%= f.label :title %>
       <%= f.text_field :title %>
     </p>
     <p>
-      <%= f.label :starts_at_date %>:
+      <%= f.label :starts_at_date %>
       <%= f.date_select :starts_at_date %>
     </p>
     <p>
-      <%= f.label :starts_at_time %>:
+      <%= f.label :starts_at_time %>
       <%= f.time_select :starts_at_time %>
     </p>
     <p>
-      <%= f.label :special_request %>:
+      <%= f.label :special_request %>
       <%= f.text_area :special_request %>
     </p>
     <p class="button"><%= f.submit "Submit" %></p>
   <% end %>
-
 </div>
 
-</html>
 

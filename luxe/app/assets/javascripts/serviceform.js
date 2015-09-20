@@ -2,7 +2,7 @@ console.log("here")
 angular.module('ui.bootstrap.demo', ['ngAnimate', 'ui.bootstrap']);
 angular.module('ui.bootstrap.demo').controller('AccordionDemoCtrl', function ($scope) {
   $scope.oneAtATime = true;
-  debugger
+
   $scope.groups = [
     {
       title: 'Dynamic Group Header - 1',
