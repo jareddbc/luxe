@@ -18,8 +18,8 @@
   <h3><%= menu_item.name %></h3>
   <h4><%= menu_item.description %></h4>
     <% if !menu_item.name.nil? %>
-      <%= link_to "Edit", edit_menu_path(menu_item) %>
-      <%= link_to 'Delete', menu_path(menu_item), :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to "Edit", edit_menu_path(menu_item), :method => :update %>
+      <%= link_to "Delete", menu_path(menu_item), :method => :delete %>
     <% end %>
   <% end %>
   <% end %>
@@ -37,8 +37,6 @@
       <%= f.label :description %>
       <%= f.text_field :description %>
     </p>
-
-
     <p class="button"><%= f.submit "Submit" %></p>
   <% end %>
 </div>
@@ -64,9 +62,9 @@
 
 <div>
   <% @guests.each do |guest| %>
+    <p><b>Room Number: </b><%= guest.room_number %></p>
     <p><b>Name: </b><%= guest.first_name %> <%= guest.last_name %></p>
     <p><b>Phone: </b><%= guest.phone %></p>
-    <p><b>Room Number: </b><%= guest.room_number %></p>
   <% end %>
 </div>
 

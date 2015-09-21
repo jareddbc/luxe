@@ -1,10 +1,11 @@
-<div ng-controller="AccordionDemoCtrl">
+<div ng-controller="ServiceFormController">
   <script type="text/ng-template" id="group-template.html">
     <div class="panel {{panelClass || 'panel-default'}}">
       <div class="panel-heading">
         <h4 class="panel-title" style="color:#fa39c3">
           <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" accordion-transclude="heading"><span
-            ng-class="{'text-muted': isDisabled}">{{heading}}</span></a>
+            ng-class="{'text-muted': isDisabled}">{{heading}}</span>
+          </a>
         </h4>
       </div>
       <div class="panel-collapse collapse" collapse="!isOpen">
@@ -13,38 +14,12 @@
     </div>
   </script>
 
-  <p>
-    <button type="button" class="btn btn-default btn-sm" ng-click="status.open = !status.open">Toggle last panel</button>
-    <button type="button" class="btn btn-default btn-sm" ng-click="status.isFirstDisabled = ! status.isFirstDisabled">Enable / Disable first panel</button>
-  </p>
-
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" ng-model="oneAtATime">
-      Open only one at a time
-    </label>
-  </div>
   <accordion close-others="oneAtATime">
 
-    <accordion-group heading="Static Header, initially expanded" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-      This content is straight in the template.
-    </accordion-group>
+    <accordion-group heading="Clean my room" template-url="group-template.html">
+      <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
-    <accordion-group heading="{{group.title}}" ng-repeat="group in groups">
-
-      {{group.content}}
-    </accordion-group>
-
-    <accordion-group heading="Dynamic Body Content">
-      <p>The body of the accordion group grows to fit the contents</p>
-      <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
-      <div ng-repeat="item in items">{{item}}</div>
-    </accordion-group>
-
-    <accordion-group heading="Custom template" template-url="group-template.html">
-	  	<div ng-controller="DateTimePickerDemoCtrl" class="container">
-
-        <h4>Sceduling service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+        <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
 
         <datetimepicker min-date="minDate" hour-step="hourStep" 
         minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
@@ -58,22 +33,93 @@
       </div>
     </accordion-group>
 
-    <accordion-group heading="Delete account" panel-class="panel-danger">
-      <p>Please, to delete your account, click the button below</p>
-      <button class="btn btn-danger">Delete</button>
+    <accordion-group heading="Return my valet" template-url="group-template.html">
+      <div ng-controller="DateTimePickerDemoCtrl" class="container">
+
+        <h4>Sceduling valet service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+
+        <datetimepicker min-date="minDate" hour-step="hourStep" 
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        date-format="dd-MMM-yyyy" date-options="dateOptions"
+        date-disabled="disabled(date, mode)" 
+        readonly-date="false"
+        readonly-time="false"></datetimepicker>
+
+        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+
+      </div>
     </accordion-group>
 
-    <accordion-group is-open="status.open">
-      <accordion-heading>
-        I can have markup, too! <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': status.open, 'glyphicon-chevron-right': !status.open}"></i>
-      </accordion-heading>
-      This is just some content to illustrate fancy headings.
+    <accordion-group heading="Wake me up" template-url="group-template.html">
+      <div ng-controller="DateTimePickerDemoCtrl" class="container">
+
+        <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+
+        <datetimepicker min-date="minDate" hour-step="hourStep" 
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        date-format="dd-MMM-yyyy" date-options="dateOptions"
+        date-disabled="disabled(date, mode)" 
+        readonly-date="false"
+        readonly-time="false"></datetimepicker>
+
+        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+
+      </div>
+    </accordion-group>
+
+    <accordion-group heading="Book a spa service" template-url="group-template.html">
+	  	<div ng-controller="DateTimePickerDemoCtrl" class="container">
+
+        <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+
+        <datetimepicker min-date="minDate" hour-step="hourStep" 
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        date-format="dd-MMM-yyyy" date-options="dateOptions"
+        date-disabled="disabled(date, mode)" 
+        readonly-date="false"
+        readonly-time="false"></datetimepicker>
+
+        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+
+      </div>
+    </accordion-group>
+
+    <accordion-group heading="Feed me" template-url="group-template.html" >
+      <div ng-controller="FeedMeController">
+        
+        <div ng-controller="DateTimePickerDemoCtrl" class="container">
+
+          <h4>Sceduling room service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+
+          <datetimepicker min-date="minDate" hour-step="hourStep" 
+          minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+          date-format="dd-MMM-yyyy" date-options="dateOptions"
+          date-disabled="disabled(date, mode)" 
+          readonly-date="false"
+          readonly-time="false"></datetimepicker>
+
+          <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+
+        </div>
+  <!-- adding -->
+        <div ng-controller="ThumbnailSelectorController" class="container">
+
+
+          <a href="#" ng-repeat="food in foods" class="magic-thumbnail" ng-click="selectOption(food)" ng-selected="food.selected"> 
+            <img src={{food.src}} />
+          </a>
+
+
+        </div>
+
+        <button ng-click="doallthethings()">Do ALL</button>
+
+      </div>
+
     </accordion-group>
 
 
   </accordion>
-
-
 
 </div>
 

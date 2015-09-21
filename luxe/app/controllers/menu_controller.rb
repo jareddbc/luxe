@@ -10,8 +10,8 @@ class MenuController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     @menu.save
-      @menu.hotel_id = session[:hotel_id]
-      @menu.save
+    @menu.hotel_id = session[:hotel_id]
+    @menu.save
     redirect_to :back
   end
 
@@ -20,15 +20,25 @@ class MenuController < ApplicationController
   end
 
   def edit
+    @menu = Menu.find_by(id: params[:id])
+  end
+
+  def update
+    p params
     @menu = Menu.find(params[:id])
-    @menu.update_attributes(:name => params[:name], :description => params[:description])
+    menu_params = params[:menu]
+    @menu.update_attributes(:name => menu_params["name"], :description => menu_params["description"])
+    @menu.save
+    redirect_to hotels_show_path
   end
 
   def destroy
+      p "********************************"
      p params
+     p "********************************"
     @menu = Menu.find_by(id: params[:id])
     @menu.destroy
-    redirect_to :back
+    redirect_to hotels_show_path
   end
 
   private
