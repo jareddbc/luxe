@@ -29,4 +29,8 @@ Rails.application.routes.draw do
 
   root "sessions#guest"
 
+  namespace :api do
+    resources :services, :only => [:create]
+  end
+
 end

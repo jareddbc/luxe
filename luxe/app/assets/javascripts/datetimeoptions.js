@@ -7,7 +7,13 @@ angular.module('luxe')
         $scope.date = new Date();
       };
 
-      $scope.dateTimeNow();
+      if(!$scope.date){
+        console.log('Creating new Scope Date');
+        $scope.dateTimeNow();
+      } else {
+        console.log('Using Parent Scope Date');
+      }
+
       
       $scope.toggleMinDate = function() {
         $scope.minDate = $scope.minDate ? null : new Date();
