@@ -18,4 +18,8 @@ class ApplicationController < ActionController::Base
   #     body: 'Hey there!'
   #   )
   # end
+
+  def send_text_message(to, body)
+    SendTextMessageWorker.perform_async(to, body)
+  end
 end
