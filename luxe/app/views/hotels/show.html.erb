@@ -19,7 +19,7 @@
   <h4><%= menu_item.description %></h4>
     <% if !menu_item.name.nil? %>
       <%= link_to "Edit", edit_menu_path(menu_item) %>
-      <%= link_to 'Delete', menu_path(menu_item), :confirm => 'Are you sure?', :method => :delete %>
+      <%= link_to "Delete", menu_path(menu_item), :method => :delete %>
     <% end %>
   <% end %>
 </div>
@@ -36,8 +36,6 @@
       <%= f.label :description %>
       <%= f.text_field :description %>
     </p>
-
-
     <p class="button"><%= f.submit "Submit" %></p>
   <% end %>
 </div>

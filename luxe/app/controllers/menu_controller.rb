@@ -26,7 +26,9 @@ class MenuController < ApplicationController
   end
 
   def destroy
+      p "********************************"
      p params
+     p "********************************"
     @menu = Menu.find_by(id: params[:id])
     @menu.destroy
     redirect_to :back
