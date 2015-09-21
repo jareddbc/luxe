@@ -1,34 +1,19 @@
-<!DOCTYPE html>
 <html ng-app="ui.bootstrap.demo">
 <head>
-  <title>Luxe</title>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+
+
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.4.js"></script>
-  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Plugin files -->
+  <!-- script src="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.js"></script -->
+  <link href="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.css" type="text/css" rel="stylesheet"> 
+  
   <%= javascript_include_tag 'serviceform' %>
-  <%= csrf_meta_tags %>
+  <%= javascript_include_tag 'datetimepicker' %>
+  <%= javascript_include_tag 'datetimeoptions' %>
 
-<!--   <div id="user_nav">
-  <%# if current_user %>
-    Logged in as <%#= current_user.email %>.
-    <%#= link_to "Log out", log_out_path %>
-  <%# else %>
-    <%#= link_to "Sign up", sign_up_path %> or
-    <%#= link_to "log in", log_in_path %>
-  <%# end %>
-</div>
-
-<%# flash.each do |name, msg| %>
-  <%#= content_tag :div, msg, :id => "flash_#{name}" %>
-<%# end %> -->
 </head>
 <body>
 
