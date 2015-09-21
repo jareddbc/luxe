@@ -1,6 +1,4 @@
-<html ng-app="plunker">
-
-	<div ng-controller="AccordionDemoCtrl">
+<div ng-controller="AccordionDemoCtrl">
   <script type="text/ng-template" id="group-template.html">
     <div class="panel {{panelClass || 'panel-default'}}">
       <div class="panel-heading">
@@ -44,26 +42,20 @@
     </accordion-group>
 
     <accordion-group heading="Custom template" template-url="group-template.html">
-
 	  	<div ng-controller="DateTimePickerDemoCtrl" class="container">
 
-	    <br>
-	    
-	    
-	      <h4>Sceduling service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+        <h4>Sceduling service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
 
-	      <datetimepicker min-date="minDate" hour-step="hourStep" 
-	      minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
-	      date-format="dd-MMM-yyyy" date-options="dateOptions"
-	      date-disabled="disabled(date, mode)" 
-	      readonly-date="false"
-	      readonly-time="false"></datetimepicker>
-	      
-	      <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-	      </div>
+        <datetimepicker min-date="minDate" hour-step="hourStep" 
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        date-format="dd-MMM-yyyy" date-options="dateOptions"
+        date-disabled="disabled(date, mode)" 
+        readonly-date="false"
+        readonly-time="false"></datetimepicker>
 
-	    </div>
+        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
 
+      </div>
     </accordion-group>
 
     <accordion-group heading="Delete account" panel-class="panel-danger">
@@ -82,5 +74,9 @@
   </accordion>
 
 
-</html>
+
+</div>
+
+
+
 
