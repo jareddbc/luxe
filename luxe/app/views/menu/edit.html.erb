@@ -1,12 +1,7 @@
-<!-- Currently not working -->
-<div>
-  <%= @menu.name %>
-  <%= @menu.description %>
-</div>
 
 <div>
   <h4>Menu:</h4>
-  <%= form_for :menu, url: edit_menu_path do |f| %>
+  <%= form_for :menu, url: menu_path, :method => 'patch' do |f| %>
     <p>
       <%= f.label :name  %>
       <%= f.text_field :name %>

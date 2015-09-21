@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-  # include TwilioHelper
+  include TwilioHelper
 
   def index
     redirect_to hotel_path
@@ -25,8 +25,10 @@ class GuestsController < ApplicationController
       key_twilio = @guest.key
 
       TwilioWorker.perform_async(phone_twilio, name_twilio, hotel_name_twilio, key_twilio)
+
+      # redirect_to :back
     end
-    
+
     p @guest
     redirect_to :back
   end
