@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get '/' => 'sessions#guest'
   post '/' => 'sessions#create'
   get 'calendar' => 'hotels#calendar'
+
+  get '/incoming/:key' => 'sessions#create'
+  post '/incoming' => 'sessions#create'
+
   get '/logout' => 'sessions#destroy'
   get '/signup' => 'hotels#new'
   post '/hotels' => 'hotels#create'
@@ -23,6 +27,6 @@ Rails.application.routes.draw do
   resources :services
   resources :menu
 
-  root "sessions#new"
+  root "sessions#guest"
 
 end
