@@ -9,13 +9,15 @@ class ServicesController < ApplicationController
 
   def create
     @service = Service.new(service_params)
+    @guest = Guest.find(session[:guest_id])
+    @service.hotel = @hotel = @guest.hotel
+    @service.guest = @guest
     if @service.save
-      @guest = Guest.find(session[:guest_id])
-      @service.hotel_id = @guest.hotel_id
-      @service.guest_id = session[:guest_id]
-      @service.save
+      send_text_message @guest.phone, render_to_string('created_message.text')
+      redirect_to :back
+    else
+      raise "FAILED TO CREATE SERVICE"
     end
-    redirect_to :back
   end
 
   def show
