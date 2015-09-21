@@ -7,6 +7,12 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'dotenv-rails'
 
+# Gems for using Google Calendar
+gem 'google-api-client', :require => 'google/api_client'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+
+
 gem 'bower-rails'
 gem 'twilio-ruby', '~> 4.2.1'
 # Use Uglifier as compressor for JavaScript assets
