@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   get '/' => 'sessions#guest'
   post '/' => 'sessions#create'
-  get 'calendar' => 'hotels#calendar'
+  get '/calendar' => 'hotels#calendar'
   get '/logout' => 'sessions#destroy'
   get '/signup' => 'hotels#new'
   post '/hotels' => 'hotels#create'

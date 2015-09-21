@@ -1,5 +1,5 @@
 class GuestsController < ApplicationController
-  include TwilioHelper
+  # include TwilioHelper
 
   def index
     redirect_to hotel_path
