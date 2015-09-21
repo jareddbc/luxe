@@ -10,17 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
 //= require angular/angular
-//= require turbolinks
-//= require_tree .
-//= require serviceform
-//= require datetimepicker
-//= require datetimeoptions
+//= require thumbnail_selector_controller
+//= require_tree ./
 
-
-
-
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap-sprockets";
-@import "bootstrap-sass-official/assets/stylesheets/bootstrap";
