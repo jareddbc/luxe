@@ -16,8 +16,7 @@ SCOPE = 'https://www.googleapis.com/auth/calendar'
 # files or intitiating an OAuth2 authorization request via InstalledAppFlow.
 # If authorization is required, the user's default browser will be launched
 # to approve the request.
-#
-# @return [Signet::OAuth2::Client] OAuth2 credentials
+
 def authorize
   FileUtils.mkdir_p(File.dirname(CREDENTIALS_PATH))
 
@@ -59,8 +58,22 @@ results.data.items.each do |event|
   puts "- #{event.summary} (#{start})"
 end
 
-event = {
-  'summary' => 'Google I/O 2015',
+  # def event
+  #   render json: create_calendar_event(User.find(:id), Service.find(:id))
+  # end
+
+  # def create_calendar_event(user)
+  #   event = {}
+  #   event['summary'] = Service.title
+  #   event['location'] = Hotel.address
+  #   event['description'] = Service.special_request
+  #   event['start'] = {
+
+  #   }
+  #   event
+  # end
+  event = {
+  'summary' => 'Luxe Calendar',
   'location' => '800 Howard St., San Francisco, CA 94103',
   'description' => 'A chance to hear more about Google\'s developer products.',
   'start' => {
@@ -75,8 +88,7 @@ event = {
     'RRULE:FREQ=DAILY;COUNT=2'
   ],
   'attendees' => [
-    {'email' => 'lpage@example.com'},
-    {'email' => 'sbrin@example.com'},
+    {'email' => 'anuja.verma@gmail.com'}
   ],
   'reminders' => {
     'useDefault' => false,
@@ -90,6 +102,7 @@ event = {
 results = client.execute!(
   :api_method => calendar_api.events.insert,
   :parameters => {
+    # :calendarId => 'anuja.verma@gmail.com'},
     :calendarId => 'luxeforluxary@gmail.com'},
   :body_object => event)
 event = results.data
