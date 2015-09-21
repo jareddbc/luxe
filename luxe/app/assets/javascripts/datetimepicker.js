@@ -1,4 +1,3 @@
-console.log("datetimepicker js rendered")
 angular.module('ui.bootstrap.datetimepicker',
     ["ui.bootstrap.dateparser", "ui.bootstrap.datepicker", "ui.bootstrap.timepicker"]
   )
