@@ -10,7 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require angular/angular
-//= require thumbnail_selector_controller
+//= require angular
+//= require angular-animate
+//= require angular-bootstrap
 //= require_tree ./
 

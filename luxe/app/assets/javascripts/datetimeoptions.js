@@ -1,3 +1,5 @@
+//= require ./luxe
+
 angular.module('luxe')
   .controller('DateTimePickerDemoCtrl',
     function ($scope, $timeout) {

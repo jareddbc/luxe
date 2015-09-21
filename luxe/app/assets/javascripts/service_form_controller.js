@@ -1,5 +1,7 @@
+//= require ./luxe
+
 angular.module('luxe')
-  .controller('AccordionDemoCtrl', function ($scope) {
+  .controller('ServiceFormController', function ($scope) {
     $scope.oneAtATime = true;
 
     $scope.groups = [

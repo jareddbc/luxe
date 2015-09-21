@@ -1,8 +1,13 @@
-alert(4);
+//= require ./luxe
 
 angular.module('luxe').controller('ThumbnailSelectorController', function ($scope, $timeout) {
 
-	$scope.foods = [
+	$scope.selectOption = function(option){
+		option.selected = !option.selected;
+	};
+
+	// this feels wrong to Jared
+	$scope.$parent.foods = $scope.foods = [
 		{
 			src: "https://upload.wikimedia.org/wikipedia/commons/5/55/Atelopus_zeteki1.jpg",
 			selected: false,
@@ -16,7 +21,6 @@ angular.module('luxe').controller('ThumbnailSelectorController', function ($scop
 			selected: false,
 		},
 	];
-
 
 
 });
