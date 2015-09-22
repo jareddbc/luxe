@@ -29,6 +29,7 @@ class Api::ServicesController < ApplicationController
     else
     	render json:  {:error => "Failed to create Service", :errors => @service.errors}
     end
+    
   end
 
   # def show

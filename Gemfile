@@ -17,7 +17,8 @@ gem 'bower-rails'
 gem 'twilio-ruby', '~> 4.2.1'
 gem 'sidekiq'
 gem "sidekiq-cron", "~> 0.3.0"
-
+gem "rails_12factor", group: :production
+gem 'puma'
 gem 'redis'
 
 gem 'bcrypt'
