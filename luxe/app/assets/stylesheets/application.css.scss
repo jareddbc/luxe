@@ -1,5 +1,16 @@
 //= require bootstrap-sass-official
 
+html,body{
+	height: 100%;
+	width: 100%;
+}
+
+body > .page{
+	height: 100%;
+	width: 100%;
+	background-color: black;
+}
+
 .datetimepicker-wrapper {
   vertical-align: middle;
   display: inline-block;
@@ -28,4 +39,51 @@
 }
 .magic-thumbnail[selected]{
 	border: 2px solid blue;
+}
+
+.panel-heading{
+	background-image: url(http://img.archiexpo.com/images_ae/photo-g/contemporary-hotel-room-furniture-set-52432-8460571.jpg);
+	background-position: center;
+	// background: gray;
+	
+	height: 16em;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+
+
+
+h4{
+	font-family: 'Raleway', sans-serif;
+}
+
+
+.ng-binding{
+	font-size: 30px;
+	color: black;
+}
+
+
+.test{
+	background-image: url(http://img.archiexpo.com/images_ae/photo-g/contemporary-hotel-room-furniture-set-52432-8460571.jpg);
+
+}
+
+
+
+
+.deadpoodle .panel-heading{
+	background-image: url(http://lorempixel.com/400/200/sports/deadpoodle/);
+}
+.deadcat .panel-heading{
+	background-image: url(http://lorempixel.com/400/200/sports/deadcat/);
+}
+.deaddog .panel-heading{
+	background-image: url(http://lorempixel.com/400/200/sports/deaddog/);
+}
+.deadllama .panel-heading{
+	background-image: url(http://lorempixel.com/400/200/sports/deadllama/);
+}
+.deadfrog .panel-heading{
+	background-image: url(http://lorempixel.com/400/200/sports/deadfrog/);
 }
