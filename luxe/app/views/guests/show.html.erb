@@ -20,7 +20,7 @@
 
   <accordion close-others="oneAtATime">
 
-    <accordion-group heading="Clean my room" class="deadpoodle" template-url="group-template.html">     
+    <accordion-group heading="Clean my room" class="clean" template-url="group-template.html">     
       <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
         <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -37,7 +37,7 @@
     </accordion-group>
 
 
-    <accordion-group heading="Return my valet" class="deadcat" template-url="group-template.html">
+    <accordion-group heading="Return my valet" class="car" template-url="group-template.html">
       <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
         <h4>Sceduling valet service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -54,7 +54,7 @@
       </div>
     </accordion-group>
 
-    <accordion-group heading="Wake me up" class="deaddog" template-url="group-template.html">
+    <accordion-group heading="Wake me up" class="alarm" template-url="group-template.html">
       <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
         <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -71,7 +71,7 @@
       </div>
     </accordion-group>
 
-    <accordion-group heading="Book a spa service" class="deadllama" template-url="group-template.html">
+    <accordion-group heading="Book a spa service" class="spa" template-url="group-template.html">
 	  	<div ng-controller="DateTimePickerDemoCtrl" class="container">
 
         <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -88,7 +88,7 @@
       </div>
     </accordion-group>
 
-    <accordion-group heading="Feed me" class="deadfrog" template-url="group-template.html" >
+    <!-- <accordion-group heading="Feed me" class="food" template-url="group-template.html" >
       <div ng-controller="FeedMeController">
         
         <div ng-controller="DateTimePickerDemoCtrl" class="container">
@@ -105,8 +105,8 @@
           <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
 
         </div>
-  <!-- adding -->
-        <div ng-controller="ThumbnailSelectorController" class="container">
+  <!adding -->
+       <!--  <div ng-controller="ThumbnailSelectorController" class="container">
 
 
           <a href="#" ng-repeat="thumb in available_thumbnails" class="magic-thumbnail" ng-click="selectOption(thumb)" ng-selected="thumb.selected"> 
@@ -120,7 +120,7 @@
 
       </div>
 
-    </accordion-group>
+    </accordion-group> -->
 
 
   </accordion>

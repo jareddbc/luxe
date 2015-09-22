@@ -4,8 +4,12 @@ html,body{
 	height: 100%;
 	width: 100%;
 }
+.header{
+	background-color: black;
+}
 
 body > .page{
+	padding-top: 10em;
 	height: 100%;
 	width: 100%;
 	background-color: black;
@@ -52,7 +56,6 @@ body > .page{
 }
 
 
-
 h4{
 	font-family: 'Raleway', sans-serif;
 }
@@ -64,26 +67,25 @@ h4{
 }
 
 
-.test{
-	background-image: url(http://img.archiexpo.com/images_ae/photo-g/contemporary-hotel-room-furniture-set-52432-8460571.jpg);
-
-}
 
 
 
 
-.deadpoodle .panel-heading{
-	background-image: url(http://lorempixel.com/400/200/sports/deadpoodle/);
+.clean .panel-heading{
+	background-image: asset-url("bed.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 }
-.deadcat .panel-heading{
-	background-image: url(http://lorempixel.com/400/200/sports/deadcat/);
+.car .panel-heading{
+	background-image: asset-url("car.jpg");
+	background-size: cover;
 }
-.deaddog .panel-heading{
-	background-image: url(http://lorempixel.com/400/200/sports/deaddog/);
+.alarm .panel-heading{
+	background-image: asset-url("sleep.jpg");
+	background-size: cover;
 }
-.deadllama .panel-heading{
-	background-image: url(http://lorempixel.com/400/200/sports/deadllama/);
-}
-.deadfrog .panel-heading{
-	background-image: url(http://lorempixel.com/400/200/sports/deadfrog/);
+.spa .panel-heading{
+	background-image: asset-url("spa.jpg");
+	background-size: cover;
+
 }
