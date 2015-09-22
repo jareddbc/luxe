@@ -1,5 +1,20 @@
 //= require bootstrap-sass-official
 
+html,body{
+	height: 100%;
+	width: 100%;
+}
+.header{
+	background-color: black;
+}
+
+body > .page{
+	padding-top: 10em;
+	height: 100%;
+	width: 100%;
+	background-color: black;
+}
+
 .datetimepicker-wrapper {
   vertical-align: middle;
   display: inline-block;
@@ -28,4 +43,49 @@
 }
 .magic-thumbnail[selected]{
 	border: 2px solid blue;
+}
+
+.panel-heading{
+	background-image: url(http://img.archiexpo.com/images_ae/photo-g/contemporary-hotel-room-furniture-set-52432-8460571.jpg);
+	background-position: center;
+	// background: gray;
+	
+	height: 16em;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+
+
+h4{
+	font-family: 'Raleway', sans-serif;
+}
+
+
+.ng-binding{
+	font-size: 30px;
+	color: black;
+}
+
+
+
+
+
+
+.clean .panel-heading{
+	background-image: asset-url("bed.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.car .panel-heading{
+	background-image: asset-url("car.jpg");
+	background-size: cover;
+}
+.alarm .panel-heading{
+	background-image: asset-url("sleep.jpg");
+	background-size: cover;
+}
+.spa .panel-heading{
+	background-image: asset-url("spa.jpg");
+	background-size: cover;
+
 }
