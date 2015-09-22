@@ -1,24 +1,36 @@
 //= require bootstrap-sass-official
+//= require rails_bootstrap_forms
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:200,100);
 
 .datetimepicker-wrapper {
   vertical-align: middle;
   display: inline-block;
 }
+.body{
+ -moz-border-radius-topright:1px;
+  -moz-border-radius-topleft:1px;
+  -webkit-border-top-right-radius:1px;
+  -webkit-border-top-left-radius:1px;
+  border-top-left-radius:1px;
+  border-top-right-radius:1px;
+  text-align: center;
 
+}
 .datetimepicker-wrapper > input {
   margin-bottom: 0 !important;
   width: 130px;
 }
 
-.datetimepicker-wrapper [ng-model=hours], 
+.datetimepicker-wrapper [ng-model=hours],
 .datetimepicker-wrapper [ng-model=minutes] {
   width: 46px !important;
 }
 
 .magic-thumbnail{
-	height: 50px; 
-	width: 50px; 
-	display: inline-block; 
+	height: 50px;
+	width: 50px;
+	display: inline-block;
 	overflow: hidden;
 	border: 2px solid transparent;
 }
@@ -29,3 +41,25 @@
 .magic-thumbnail[selected]{
 	border: 2px solid blue;
 }
+
+body,.page {
+  background-color: #2c2929;
+  color: red;
+  font-family: "Raleway";
+  font-size: 18px;
+}
+
+.keylogin{
+  margin: 0 auto;
+  padding-top: 40em;
+  text-align: center;
+
+}
+.logo{
+  background-image: url("luxe-logo.png");
+  height: 100%;
+  margin: 0 auto;
+  background-repeat: no-repeat;
+}
+
+

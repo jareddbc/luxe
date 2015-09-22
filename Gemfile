@@ -12,7 +12,6 @@ gem 'google-api-client', :require => 'google/api_client'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
-
 gem 'bower-rails'
 gem 'twilio-ruby', '~> 4.2.1'
 gem 'sidekiq'
@@ -20,7 +19,7 @@ gem "sidekiq-cron", "~> 0.3.0"
 gem "rails_12factor", group: :production
 gem 'puma'
 gem 'redis'
-
+gem 'bootstrap_form'
 gem 'bcrypt'
 
 group :development, :test do

@@ -1,10 +1,8 @@
-
-<div>
-  <%= form_tag '/incoming' do %>
-    <p>
-      <%= label_tag :key %><br />
-      <%= text_field_tag :key %>
-    </p>
-    <p class="button"><%= submit_tag %></p>
+<div class="logo">
+<div class="keylogin">
+  <%= form_tag url: '/incoming', class: 'control-form' do %>
+      <%= text_field_tag :key%>
+  <%= button_to "Enter", incoming_path, {:class => "btn btn-default"} %>
   <% end %>
+</div>
 </div>
