@@ -17,6 +17,7 @@ class MenuController < ApplicationController
 
   def show
     @menus = Menu.find_by(hotel_id: params[:id])
+    redirect_to hotels_show_path
   end
 
   def edit
@@ -33,7 +34,7 @@ class MenuController < ApplicationController
   end
 
   def destroy
-      p "********************************"
+     p "********************************"
      p params
      p "********************************"
     @menu = Menu.find_by(id: params[:id])

@@ -19,7 +19,9 @@
   <h4><%= menu_item.description %></h4>
     <% if !menu_item.name.nil? %>
       <%= link_to "Edit", edit_menu_path(menu_item), :method => :update %>
-      <%= link_to "Delete", menu_path(menu_item), :method => :delete %>
+      <%#= link_to "Delete", {:controller => :menu,
+      :action => 'destroy', :id => menu_item.id }, :method => :delete %>
+      <%= link_to "Delete", menu_path(menu_item), method: :delete %>
     <% end %>
   <% end %>
   <% end %>
