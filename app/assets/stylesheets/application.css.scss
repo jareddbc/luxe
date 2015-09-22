@@ -3,6 +3,20 @@
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:200,100);
 
+html,body{
+	height: 100%;
+	width: 100%;
+}
+.header{
+	background-color: black;
+}
+
+body > .page{
+	/*height: 90%;*/
+	width: 100%;
+  font-family: "Raleway";
+}
+
 .datetimepicker-wrapper {
   vertical-align: middle;
   display: inline-block;
@@ -42,12 +56,6 @@
 	border: 2px solid blue;
 }
 
-body,.page {
-  background-color: #2c2929;
-  color: black;
-  font-family: "Raleway";
-  font-size: 18px;
-}
 
 .keylogin{
   margin: 0 auto;
@@ -65,8 +73,49 @@ body,.page {
 .cities{
   background-image: url("cities.png");
   background-size: cover;
+  height: 100%;
 
 }
 
 /*classes for images in accordion*/
 
+.panel-heading{
+	background-image: url(http://img.archiexpo.com/images_ae/photo-g/contemporary-hotel-room-furniture-set-52432-8460571.jpg);
+	background-position: center;
+	// background: gray;
+
+	height: 16em;
+	text-align: center;
+	font-family: 'Raleway', sans-serif;
+}
+
+.ng-binding{
+	font-size: 30px;
+	color: black;
+}
+.all{
+  padding-top: 6em;
+  background-image: url("luxe-logo.png");
+  background-size: 10%;
+  background-position: fixed;
+  top: 10px;
+  background-repeat: no-repeat;
+}
+.clean .panel-heading{
+	background-image: asset-url("bed.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.car .panel-heading{
+	background-image: asset-url("car.jpg");
+	background-size: cover;
+}
+.alarm .panel-heading{
+	background-image: asset-url("sleep.jpg");
+	background-size: cover;
+}
+.spa .panel-heading{
+	background-image: asset-url("spa.jpg");
+	background-size: cover;
+
+}
