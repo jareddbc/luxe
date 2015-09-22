@@ -1,11 +1,17 @@
 <html ng-app="luxe">
   <head>
     <%= stylesheet_link_tag 'application' %>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
     <link href="https://cdn.rawgit.com/zhaber/datetimepicker/master/datetimepicker.css" type="text/css" rel="stylesheet"> 
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
-  <%= yield %>
 
+  		<div class="page">
+  			<div class="header">
+  				<img src="/images/logo.png"
+  			</div>
+  			<%= yield %>
+  		</div>
   </body>
 </html>
