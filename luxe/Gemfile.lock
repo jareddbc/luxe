@@ -253,8 +253,6 @@ DEPENDENCIES
   bower-rails
   dotenv-rails
   google-api-client
-  jbuilder (~> 2.0)
-  jquery-rails
   omniauth
   omniauth-google-oauth2
   pg
@@ -266,6 +264,3 @@ DEPENDENCIES
   sidekiq
   sidekiq-cron (~> 0.3.0)
   twilio-ruby (~> 4.2.1)
-
-BUNDLED WITH
-   1.10.6
