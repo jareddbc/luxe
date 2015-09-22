@@ -44,7 +44,7 @@
 
 body,.page {
   background-color: #2c2929;
-  color: red;
+  color: black;
   font-family: "Raleway";
   font-size: 18px;
 }
@@ -57,9 +57,19 @@ body,.page {
 }
 .logo{
   background-image: url("luxe-logo.png");
-  height: 100%;
-  margin: 0 auto;
+
+  background-color: #225f66;
   background-repeat: no-repeat;
 }
 
+.cities{
+  background-image: url("cities.png");
+  background-size: cover;
 
+}
+
+/*classes for images in accordion*/
+
+.clean, panel-heading{
+
+}
