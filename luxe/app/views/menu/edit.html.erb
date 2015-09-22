@@ -1,10 +1,9 @@
-<!-- Currently not working -->
 
 <div>
   <h4>Menu:</h4>
-  <%= form_for :menu, url: edit_menu_path do |f| %>
+  <%= form_for :menu, url: menu_path, :method => 'patch' do |f| %>
     <p>
-      <%= f.label :name value=@menu.name %>
+      <%= f.label :name  %>
       <%= f.text_field :name %>
     </p>
     <p>
