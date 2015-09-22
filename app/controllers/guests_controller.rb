@@ -31,6 +31,7 @@ class GuestsController < ApplicationController
   end
 
   def destroy
+
   end
 
   private
