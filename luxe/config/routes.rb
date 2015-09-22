@@ -6,7 +6,8 @@ Rails.application.routes.draw do
 
   get '/' => 'sessions#guest'
   post '/' => 'sessions#create'
-  get 'calendar' => 'hotels#calendar'
+
+  get '/calendar' => 'hotels#calendar'
 
   get '/incoming/:key' => 'sessions#create'
   post '/incoming' => 'sessions#create'

@@ -7,7 +7,7 @@ class CreateGuests < ActiveRecord::Migration
       t.string :last_name
       t.integer :room_number
       t.string :phone
-
+      t.string :email
 
       t.timestamps null: false
     end
