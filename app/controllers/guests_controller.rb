@@ -1,5 +1,4 @@
 class GuestsController < ApplicationController
-  include TwilioHelper
 
   def index
     redirect_to hotel_path
@@ -14,6 +13,9 @@ class GuestsController < ApplicationController
     @guest.key = @guest.last_name + @guest.phone[-4..-1]
     @guest.hotel = @hotel = Hotel.find(session[:hotel_id])
     if @guest.save
+      @url = URI.parse(request.url)
+      @url.path = "/incoming/#{@guest.key}"
+      @url = @url.to_s
       send_text_message @guest.phone, render_to_string('greeting.text')
       redirect_to :back
     else

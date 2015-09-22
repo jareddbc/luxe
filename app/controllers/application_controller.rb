@@ -11,14 +11,6 @@ class ApplicationController < ActionController::Base
     redirect_to '/login' unless current_user
   end
 
-  # def auth_token_txter
-  #       @client.messages.create(
-  #       from: '+18056284348',
-  #       to: '+18188088325',
-  #     body: 'Hey there!'
-  #   )
-  # end
-
   def send_text_message(to, body)
     SendTextMessageWorker.perform_async(to, body)
   end
