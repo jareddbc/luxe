@@ -10,7 +10,7 @@ class HotelsController < ApplicationController
       session[:hotel_id] = @hotel.id
       redirect_to '/login', :notice => "Signed up!"
     else
-      redirect_to signup_path
+      render :new
     end
   end
 
