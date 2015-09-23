@@ -152,17 +152,9 @@ class Calendar
     self
   end
 
-
-
-
   module GoogleCalendarKey
-    PATH = Rails.root.join('config','google_calendar_key.p12')
     def self.get
-      if key = ENV['GOOGLE_CALENDAR_KEY']
-        Base64.decode64(key)
-      else
-        PATH.binread
-      end
+      Base64.decode64 ENV['GOOGLE_CALENDAR_KEY']
     end
   end
 
