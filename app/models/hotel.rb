@@ -31,4 +31,12 @@ class Hotel < ActiveRecord::Base
     end
   end
 
+  def calendar
+    Calendar.new(calendar_id) if calendar_id.present?
+  end
+
+  def calendar=(calendar)
+    self.calendar_id = calendar ? calendar.id : nil
+  end
+
 end

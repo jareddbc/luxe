@@ -1,12 +1,12 @@
 require 'google/api_client'
-# require 'date'
 
 
 class Calendar
 
   # MOVE ME TO .env
+  GOOGLE_EMAIL = ENV['GOOGLE_EMAIL']
   CLIENT_EMAIL = JSON.parse(Rails.root.join('config/google_calendar_key.json').read)['client_email']
-
+  # CLIENT_EMAIL = id
   class << self
 
     def client
@@ -18,7 +18,7 @@ class Calendar
     end
 
     def connect!
-      @client = Google::APIClient.new(:application_name => 'FROG', :application_version => '1')
+      @client = Google::APIClient.new(:application_name => 'LUXE', :application_version => '1')
       key_file_path = Rails.root.join('config','google_calendar_key.p12').to_s
       key = Google::APIClient::PKCS12.load_key(key_file_path, 'notasecret')
       service_account = Google::APIClient::JWTAsserter.new(
@@ -28,12 +28,14 @@ class Calendar
       )
       @client.authorization = service_account.authorize(CLIENT_EMAIL)
 
-
       @client
     end
 
     def all
-      client.execute(:api_method => calendar_api.calendar_list.list)
+      response = client.execute(:api_method => calendar_api.calendar_list.list)
+      response.data.items.map do |calendar|
+        new(calendar.id, calendar)
+      end
     end
 
     def create(summary)
@@ -45,8 +47,10 @@ class Calendar
 
       raise "failed to create calendar: #{response.error_message}" unless response.success?
 
-      new(response.data.id)
-
+      calendar = new(response.data.id, response.data)
+      calendar.grant_public_read_access!
+      calendar.create_inital_event!
+      calendar
     end
 
     def get(id)
@@ -54,24 +58,47 @@ class Calendar
         :api_method => calendar_api.calendar_list.get,
         :parameters => {'calendarId' => id},
       )
-      response.success? ? new(response.data.id) : nil
+      response.success? ? new(response.data.id, response.data) : nil
     end
 
   end
 
+  attr_reader :id
 
-  def initialize(id)
+  def initialize(id, data=nil)
     @id = id
-    p id
+    @data = data
   end
 
   delegate :client, :calendar_api, to: :class
+
+  def data
+    @data ||= begin
+      raise "LOADING CALENDAR DATA NOT IMPLEMENTED YET"
+    end
+  end
+
+  def primary?
+    id == GOOGLE_EMAIL
+  end
+
+  def destroy!
+    if primary?
+      warn 'refusing to delete primary calendar'
+      return
+    end
+    response = client.execute(
+      api_method: calendar_api.calendars.delete,
+      parameters: {'calendarId' => id},
+    )
+    response.success?
+  end
 
   def get_events
     response = client.execute!(
       :api_method => calendar_api.events.list,
       :parameters => {
-        :calendarId => @id,
+        :calendarId => id,
         :maxResults => 10,
         :singleEvents => true,
         :orderBy => 'startTime',
@@ -81,44 +108,50 @@ class Calendar
     if response.success?
       return response.data.items
     else
-      throw "failed to load events for calendar #{@id}: #{response.error_message}"
+      throw "failed to load events for calendar #{id}: #{response.error_message}"
     end
   end
 
-  def create_event
-    event = {
-      'summary' => 'something',
-      'location' => '800 Howard St., San Francisco, CA 94103',
-      'description' => 'OMG what',
+  def create_calendar_event(event)
+    response = client.execute!(
+      :api_method => calendar_api.events.insert,
+      :parameters => {:calendarId => id},
+      :body_object => event
+    )
+    response.success?
+  end
+
+  def create_inital_event!
+    create_calendar_event(
+      'summary' => "Calendar created",
+      'description' => 'Your LUXE calendar was created',
       'start' => {
-        'dateTime' => '2015-10-10T09:00:00-07:00',
+        'dateTime' => DateTime.now.rfc3339(9),
         'timeZone' => 'America/Los_Angeles',
       },
       'end' => {
-        'dateTime' => '2015-10-10T17:00:00-07:00',
+        'dateTime' => DateTime.now.rfc3339(9),
         'timeZone' => 'America/Los_Angeles',
       },
-      'recurrence' => [
-        'RRULE:FREQ=DAILY;COUNT=1'
-      ],
-      'attendees' => [
-        {'email' => 'lpage@example.com'},
-        {'email' => 'sbrin@example.com'},
-      ],
-      'reminders' => {
-        'useDefault' => false,
-        'overrides' => [
-          {'method' => 'email', 'minutes' => 24 * 60},
-          {'method' => 'popup', 'minutes' => 10},
-        ],
-      },
-    }
+    ) or raise "Failed to create initial event for calendar #{id}"
+  end
 
-    client.execute!(
-      :api_method => calendar_api.events.insert,
-      :parameters => {:calendarId => @id},
-      :body_object => event
+
+  def grant_public_read_access!
+    rule = {
+      'scope' => {'type' => 'default' },
+      'role' => 'reader'
+    }
+    response = client.execute(
+      api_method: calendar_api.acl.insert,
+      parameters: {'calendarId' => id},
+      headers:    {'Content-Type' => 'application/json'},
+      body:       JSON.dump(rule),
     )
+
+    raise "failed to grand public reader access to calendar #{id}: #{response.error_message}" unless response.success?
+
+    self
   end
 
 
