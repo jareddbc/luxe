@@ -1,5 +1,4 @@
 require 'google/api_client'
-# require 'date'
 
 
 class Calendar
@@ -113,7 +112,7 @@ class Calendar
     end
   end
 
-  def create_event(event)
+  def create_calendar_event(event)
     response = client.execute!(
       :api_method => calendar_api.events.insert,
       :parameters => {:calendarId => id},
@@ -123,7 +122,7 @@ class Calendar
   end
 
   def create_inital_event!
-    create_event(
+    create_calendar_event(
       'summary' => "Calendar created",
       'description' => 'Your LUXE calendar was created',
       'start' => {
