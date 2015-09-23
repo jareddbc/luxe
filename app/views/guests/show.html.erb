@@ -27,7 +27,7 @@
       <div>{{alert}}</div>
     </div>
     <accordion close-others="oneAtATime">
-      <accordion-group heading="Room Cleaning" class="clean" template-url="group-template.html">
+      <accordion-group heading="Room Cleaning" class="clean" template-url="group-template.html" style="border: none">
         <div ng-controller="CleanMeController">
           <div ng-controller="DateTimePickerDemoCtrl" class="container">
             <h4>Sceduling cleaning service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -47,7 +47,7 @@
       <div>{{alert}}</div>
     </div>
 
-    <accordion-group heading="Valet" class="car" template-url="group-template.html">
+    <accordion-group heading="Valet" class="car" template-url="group-template.html" style="border: none">
       <div ng-controller="ValetController">
         <div ng-controller="DateTimePickerDemoCtrl" class="container">
           <h4>Sceduling valet service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -67,7 +67,7 @@
       <div>{{alert}}</div>
     </div>
 
-    <accordion-group heading="Wake me up" class="alarm" template-url="group-template.html">
+    <accordion-group heading="Wake me up" class="alarm" template-url="group-template.html" style="border: none">
       <div ng-controller="WakeMeController">
         <div ng-controller="DateTimePickerDemoCtrl" class="container">
           <h4>Sceduling wakeup service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -87,7 +87,7 @@
       <div>{{alert}}</div>
     </div>
 
-    <accordion-group heading="Book a spa service" class="spa" template-url="group-template.html">
+    <accordion-group heading="Book a spa service" class="spa" template-url="group-template.html" style="border: none">
       <div ng-controller="SpaController">
 	  	  <div ng-controller="DateTimePickerDemoCtrl" class="container">
         <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -110,7 +110,7 @@
       <div>{{alert}}</div>
     </div>
 
-    <accordion-group heading="Feed me" class="food" template-url="group-template.html" >
+    <accordion-group heading="Feed me" class="food" template-url="group-template.html" style="border: none">
       <div ng-controller="FeedMeController">
 
         <div ng-controller="DateTimePickerDemoCtrl" class="container">
