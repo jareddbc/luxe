@@ -101,22 +101,22 @@ body > .page{
   background-repeat: no-repeat;
 }
 .clean .panel-heading{
-	background-image: asset-url("bed.jpg");
+	background-image: url("bed.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
    box-shadow: none;
 
 }
 .car .panel-heading{
-	background-image: asset-url("car.jpg");
+	background-image: url("car.jpg");
 	background-size: cover;
 }
 .alarm .panel-heading{
-	background-image: asset-url("sleep.jpg");
+	background-image: url("sleep.jpg");
 	background-size: cover;
 }
 .spa .panel-heading{
-	background-image: asset-url("spa.jpg");
+	background-image: url("spa.jpg");
 	background-size: cover;
 }
 .scheduletext .ng-binding {
@@ -201,6 +201,7 @@ th, td {
 .hotel-login h1 {
   color: white;
 }
+
 .hotel-login h4 {
   color: white;
   font-size: 16px;
@@ -215,3 +216,4 @@ th, td {
 .error_messages li{
   list-style-type: none;
 }
+

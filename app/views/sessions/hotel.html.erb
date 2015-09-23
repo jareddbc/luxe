@@ -1,7 +1,16 @@
+
 <div class="hotel-login">
 <h1> Welcome back </h1>
 <%= form_tag '/login' do %>
-  <h4>
+<div>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
+</div>
+
+<%= form_tag '/login' do %>
+
+  <p>
     <%= label_tag :email %><br />
     <%= text_field_tag :email %>
  </h4>

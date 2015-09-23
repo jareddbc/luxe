@@ -10,11 +10,11 @@ angular.module('luxe').controller('SpaController', [ '$scope', '$timeout', '$htt
         starts_at_date : $scope.date,
       }
     };
-
     $http.post('/api/services', payload).then(
       function(response){
 
         $scope.alert('Spa', 'Your service was scheduled!', payload);
+
       },
       function(response){
         $scope.alert('Spa', 'FAILED TO SAVE scheduled clean service');

@@ -274,6 +274,3 @@ DEPENDENCIES
   sidekiq
   sidekiq-cron (~> 0.3.0)
   twilio-ruby (~> 4.2.1)
-
-BUNDLED WITH
-   1.10.6
