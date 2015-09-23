@@ -1,4 +1,5 @@
-<div class="hotelsignup">
+<div class="hotel-back">
+  <div class="hotelsignup">
 <h1>Hotel Sign Up</h1>
 
 <%= form_for :hotel, url: '/hotels' do |f| %>
@@ -36,6 +37,7 @@
     <%= f.label :amenities %><br />
     <%= f.text_field :amenities %>
   </p>
-  <p class="button"><%= f.submit %></p>
+  <%= f.submit 'Submit', :class => 'btn btn-default' %>
 <% end %>
+</div>
 </div>
