@@ -7,10 +7,9 @@ class HotelsController < ApplicationController
   def create
     @hotel = Hotel.new(hotel_params)
     if @hotel.save
+      # TODO rename to a method descining intslef. login?
       session[:hotel_id] = @hotel.id
-      Calendar.client
-      newCalendar = Calendar.create(@hotel.name)
-      @hotel.calendar_id = newCalendar.instance_variable_get(:@id)
+      @hotel.calendar = Calendar.create(@hotel.name)
       @hotel.save
       redirect_to '/login', :notice => "Signed up!"
     else
