@@ -6,6 +6,7 @@
 html,body{
 	height: 100%;
 	width: 100%;
+  background-color: black;
 }
 .header{
 	background-color: black;
@@ -121,5 +122,19 @@ body > .page{
   font-size: 18px;
 }
 
-
-
+.hover08 figure img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.hover08 figure:hover img {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.hotelsignup {
+  background-color: black;
+  padding-left: 3em;
+  font-family: "Raleway";
+  color: white;
+}
