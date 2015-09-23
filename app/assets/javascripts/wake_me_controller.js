@@ -6,6 +6,7 @@ angular.module('luxe').controller('WakeMeController', [ '$scope', '$timeout', '$
 
     var payload = {
       service: {
+        title: 'Wake Up Call',
         starts_at_date : $scope.date,
       }
     };

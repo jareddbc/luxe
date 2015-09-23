@@ -29,9 +29,11 @@
   </div>
 
   <div class="all">
+
     <div ng-repeat="alert in alerts.CleanMe track by $index" template-url="alert-template.html" class="scheduletext">
       <div>{{alert}}</div>
     </div>
+
     <accordion close-others="oneAtATime">
       <accordion-group heading="Room Cleaning" class="clean" template-url="group-template.html" style="border: none">
         <div ng-controller="CleanMeController">
@@ -43,7 +45,10 @@
             date-disabled="disabled(date, mode)"
             readonly-date="false"
             readonly-time="false"></datetimepicker>
-            <button ng-click="addScheduleCleanService()">Schedule</button>
+
+            <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+            <button ng-click="addScheduleCleanService(cleanData)">Schedule</button>
+
           </div>
         </div>
       </accordion-group>

@@ -35,9 +35,8 @@ angular.module('luxe')
       'Spa': []
     };
 
-    $scope.alert = function(type, message, payload){
-
-      $scope.alerts[type].push(message + " " + payload.service.starts_at_date);
+    $scope.alert = function(type, message){
+      $scope.alerts[type].push(message);
     };
 
   });

@@ -6,6 +6,7 @@ angular.module('luxe').controller('SpaController', [ '$scope', '$timeout', '$htt
 
     var payload = {
       service: {
+        title: 'Spa Service',
         starts_at_date : $scope.date,
       }
     };

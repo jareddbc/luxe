@@ -1,6 +1,7 @@
-
-<div class="hotelsignup ">
-<h1>Hotel Sign Up</h1>
+<div class="hotel-back">
+  <div class="hotelsignup">
+    <h1>Ready to start living LUXE?</h1>
+    <h1>Hotel Sign Up</h1>
 
 <%= form_for :hotel, url: '/hotels' do |f| %>
   <% if @hotel.errors.any? %>
@@ -16,7 +17,7 @@
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </p>
+  <p>
   <p>
     <%= f.label :address %><br />
     <%= f.text_field :address %>
@@ -35,11 +36,12 @@
   </p>
   <p>
     <%= f.label :amenities %><br />
-    <%= f.text_field :amenities %>
+    <%= f.text_area :amenities %>
   </p>
-  <p class="button"><%= f.submit %></p>
-  <p><button class="loginButton2" type="button">Login</button></p>
-<% end %>
+
+  <%= f.submit 'Submit', :class => 'btn btn-default' %>
+  <p><button class="loginButton2 btn btn-default" type="button">Login</button></p>
+  <% end %>
 </div>
 
 <div class="hotelslogin" >
@@ -54,7 +56,9 @@
     <%= label_tag :password %><br />
     <%= password_field_tag :password %>
   </p>
-  <p class="button"><%= submit_tag "Submit" %></p>
-  <p class="SignupButton"><button type="button">Signup</button></p>
+  <p class="button"><%= submit_tag "Submit", :class => "btn btn-default" %></p>
+  <p class="SignupButton"><button class="btn btn-default" type="button">Signup</button></p>
+
 <% end %>
+</div>
 </div>

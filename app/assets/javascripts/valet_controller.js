@@ -6,6 +6,7 @@ angular.module('luxe').controller('ValetController', [ '$scope', '$timeout', '$h
 
     var payload = {
       service: {
+        title: 'Valet',
         starts_at_date : $scope.date,
       }
     };
