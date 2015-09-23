@@ -10,6 +10,7 @@ html,body{
 }
 .header{
 	background-color: black;
+
 }
 
 body > .page{
@@ -17,6 +18,8 @@ body > .page{
 	width: 100%;
   font-family: "Raleway";
   background-color: black;
+  padding-top: 1em;
+
 }
 
 .datetimepicker-wrapper {
@@ -76,7 +79,6 @@ body > .page{
 
 }
 
-/*classes for images in accordion*/
 
 .panel-heading{
 	background-image: url(http://img.archiexpo.com/images_ae/photo-g/contemporary-hotel-room-furniture-set-52432-8460571.jpg);
@@ -136,7 +138,7 @@ body > .page{
   background-color: black;
   padding-left: 3em;
   font-family: "Raleway";
-  color: white;
+  color: black;
   background-image: url("hotel_skyline.png");
   width: 100%;
   height: 100%;
@@ -145,3 +147,71 @@ body > .page{
   bottom: 3em;
 }
 
+.hotel-show-page{
+  background-color: white;
+  color:black;
+}
+.logout{
+  background-color: black;
+  background-image: url("luxe-logo.png");
+  background-size: 10%;
+  background-repeat: no-repeat;
+  height: 100px;
+  text-align: right;
+  font-size: 20px;
+  padding-top: 2em;
+  padding-left: 1em;
+}
+
+.logout a{
+  color: white;
+  text-decoration: none;
+  padding-right: 2em;
+  padding-top: 2em;
+}
+.hotelsignup h1{
+  color: white;
+  font-size: 24px;
+}
+.hotelsignup p{
+  color: white;
+  font-size: 16px;
+}
+
+table, th, td {
+  border: 2px solid red;
+  color: black;
+}
+
+th, td {
+  padding: 4px;
+}
+.new-guest-form{
+  display: inline-block;
+}
+.hotel-login {
+  padding-left: 3em;
+  background-image: url("hotel_skyline.png");
+  width: 100%;
+  height: 100%;
+  background-size: 105% 100%;
+  background-repeat: no-repeat;
+  bottom: 3em;
+}
+.hotel-login h1 {
+  color: white;
+}
+.hotel-login h4 {
+  color: white;
+  font-size: 16px;
+}
+.hotel-login .button{
+  color: black;
+}
+.error_messages{
+  color: white;
+}
+
+.error_messages li{
+  list-style-type: none;
+}

@@ -1,7 +1,6 @@
 <div class="hotel-back">
   <div class="hotelsignup">
-<h1>Hotel Sign Up</h1>
-
+    <h1>Ready to start living LUXE?</h1>
 <%= form_for :hotel, url: '/hotels' do |f| %>
   <% if @hotel.errors.any? %>
     <div class="error_messages">
@@ -16,7 +15,7 @@
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
-  </p>
+  <p>
   <p>
     <%= f.label :address %><br />
     <%= f.text_field :address %>
@@ -35,7 +34,7 @@
   </p>
   <p>
     <%= f.label :amenities %><br />
-    <%= f.text_field :amenities %>
+    <%= f.text_area :amenities %>
   </p>
   <%= f.submit 'Submit', :class => 'btn btn-default' %>
 <% end %>
