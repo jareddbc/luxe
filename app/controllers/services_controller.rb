@@ -61,7 +61,7 @@ end
 
   def get_service_event(service, guest, hotel)
     event = {}
-    event['summary'] = "service.title"
+    event['summary'] = service.title
 
     event['location'] = hotel.address
 

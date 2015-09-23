@@ -1,5 +1,10 @@
 <%= link_to "Log out", logout_path %>
-<%= render "calendar" %>
+<input type="button" class="calendar_button" value="Show Calendar">
+<%#= button_to "Show Calendar", :class => "calendar_button"%>
+  <div class="calendar">
+    <%= render "calendar" %>
+  </div>
+
 <div>
   <%= @hotel.id %>
   <h2><%= @hotel.name %></h2>
