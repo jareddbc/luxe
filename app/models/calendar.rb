@@ -35,7 +35,7 @@ class Calendar
     def all
       response = client.execute(:api_method => calendar_api.calendar_list.list)
       response.data.items.map do |calendar|
-        new(calendar.id)
+        new(calendar.id, calendar)
       end
     end
 
@@ -48,8 +48,10 @@ class Calendar
 
       raise "failed to create calendar: #{response.error_message}" unless response.success?
 
-      new(response.data.id).grant_public_read_access!
-
+      calendar = new(response.data.id, response.data)
+      calendar.grant_public_read_access!
+      calendar.create_inital_event!
+      calendar
     end
 
     def get(id)
@@ -57,18 +59,25 @@ class Calendar
         :api_method => calendar_api.calendar_list.get,
         :parameters => {'calendarId' => id},
       )
-      response.success? ? new(response.data.id) : nil
+      response.success? ? new(response.data.id, response.data) : nil
     end
 
   end
 
   attr_reader :id
 
-  def initialize(id)
+  def initialize(id, data=nil)
     @id = id
+    @data = data
   end
 
   delegate :client, :calendar_api, to: :class
+
+  def data
+    @data ||= begin
+      raise "LOADING CALENDAR DATA NOT IMPLEMENTED YET"
+    end
+  end
 
   def primary?
     id == GOOGLE_EMAIL
@@ -104,40 +113,28 @@ class Calendar
     end
   end
 
-  def create_event
-    event = {
-      'summary' => 'something',
-      'location' => '800 Howard St., San Francisco, CA 94103',
-      'description' => 'OMG what',
-      'start' => {
-        'dateTime' => '2015-10-10T09:00:00-07:00',
-        'timeZone' => 'America/Los_Angeles',
-      },
-      'end' => {
-        'dateTime' => '2015-10-10T17:00:00-07:00',
-        'timeZone' => 'America/Los_Angeles',
-      },
-      'recurrence' => [
-        'RRULE:FREQ=DAILY;COUNT=1'
-      ],
-      'attendees' => [
-        {'email' => 'lpage@example.com'},
-        {'email' => 'sbrin@example.com'},
-      ],
-      'reminders' => {
-        'useDefault' => false,
-        'overrides' => [
-          {'method' => 'email', 'minutes' => 24 * 60},
-          {'method' => 'popup', 'minutes' => 10},
-        ],
-      },
-    }
-
-    client.execute!(
+  def create_event(event)
+    response = client.execute!(
       :api_method => calendar_api.events.insert,
       :parameters => {:calendarId => id},
       :body_object => event
     )
+    response.success?
+  end
+
+  def create_inital_event!
+    create_event(
+      'summary' => "Calendar created",
+      'description' => 'Your LUXE calendar was created',
+      'start' => {
+        'dateTime' => DateTime.now.rfc3339(9),
+        'timeZone' => 'America/Los_Angeles',
+      },
+      'end' => {
+        'dateTime' => DateTime.now.rfc3339(9),
+        'timeZone' => 'America/Los_Angeles',
+      },
+    ) or raise "Failed to create initial event for calendar #{id}"
   end
 
 
