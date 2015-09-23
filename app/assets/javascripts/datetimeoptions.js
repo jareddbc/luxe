@@ -23,8 +23,9 @@ angular.module('luxe')
         $scope.showMeridian = !$scope.showMeridian;
       };
 
-      $scope.$watch("date", function(value) {
-        console.log('New date value:' + value);
+      $scope.$watch("date", function(date) {
+        console.log('New date:' + date);
+        $scope.$parent.date = date;
       }, true);
 
       $scope.resetHours = function() {

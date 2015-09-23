@@ -40,7 +40,7 @@
   </p>
 
   <%= f.submit 'Submit', :class => 'btn btn-default' %>
-  <p><button class="loginButton2" type="button">Login</button></p>
+  <p><button class="loginButton2 btn btn-default" type="button">Login</button></p>
   <% end %>
 </div>
 
@@ -56,8 +56,8 @@
     <%= label_tag :password %><br />
     <%= password_field_tag :password %>
   </p>
-  <p class="button"><%= submit_tag "Submit" %></p>
-  <p class="SignupButton"><button type="button">Signup</button></p>
+  <p class="button"><%= submit_tag "Submit", :class => "btn btn-default" %></p>
+  <p class="SignupButton"><button class="btn btn-default" type="button">Signup</button></p>
 
 <% end %>
 </div>
