@@ -26,4 +26,11 @@ angular.module('luxe')
       isFirstOpen: true,
       isFirstDisabled: false
     };
+
+    $scope.alerts = {
+      'FeedMe': [],
+    };
+    $scope.alert = function(type, message, payload){
+      $scope.alerts[type].push(message + " " + payload.service.starts_at_date);
+    };
   });

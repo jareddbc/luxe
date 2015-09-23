@@ -15,6 +15,7 @@ body > .page{
 	/*height: 90%;*/
 	width: 100%;
   font-family: "Raleway";
+  background-color: black;
 }
 
 .datetimepicker-wrapper {
@@ -65,9 +66,6 @@ body > .page{
 }
 .logo{
   background-image: url("luxe-logo.png");
-
-  background-color: #225f66;
-  background-repeat: no-repeat;
 }
 
 .cities{
@@ -82,8 +80,6 @@ body > .page{
 .panel-heading{
 	background-image: url(http://img.archiexpo.com/images_ae/photo-g/contemporary-hotel-room-furniture-set-52432-8460571.jpg);
 	background-position: center;
-	// background: gray;
-
 	height: 16em;
 	text-align: center;
 	font-family: 'Raleway', sans-serif;
