@@ -14,7 +14,6 @@ angular.module('luxe').controller('CleanMeController', [ '$scope', '$timeout', '
       function(response){
 
         $scope.alert('CleanMe', 'Your service was scheduled!', payload);
-        console.log(payload);
       },
       function(response){
         $scope.alert('CleanMe', 'FAILED TO SAVE scheduled clean service');

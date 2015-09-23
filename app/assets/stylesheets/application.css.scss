@@ -101,6 +101,8 @@ body > .page{
 	background-image: asset-url("bed.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+   box-shadow: none;
+
 }
 .car .panel-heading{
 	background-image: asset-url("car.jpg");
@@ -118,4 +120,6 @@ body > .page{
   color: white;
   font-size: 18px;
 }
+
+
 
