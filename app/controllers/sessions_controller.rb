@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
         session[:hotel_id] = hotel.id
         redirect_to '/hotels/show', :notice => "Logged in!"
       else
-          flash.alert = "Invalid email or password"
-          # sleep 2
+          flash[:notice] = "Invalid email or password"
           redirect_to '/login'
       end
     elsif params[:key] != nil
