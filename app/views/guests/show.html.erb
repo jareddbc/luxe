@@ -1,10 +1,15 @@
 <div ng-controller="ServiceFormController">
-  
+
+  <script type="text/ng-template" id="alert-template.html">
+    <div class="alert alert-success">
+      <div ng-transclude></div>
+    </div>
+  </script>
 
   <script type="text/ng-template" id="group-template.html">
     <div class="panel {{panelClass || 'panel-default'}}">
       <div class="panel-heading">
-        
+
         <h4 class="panel-title">
           <a href tabindex="0" class="accordion-toggle" ng-click="toggleOpen()" accordion-transclude="heading"><span
             ng-class="{'text-muted': isDisabled}">{{heading}}</span>
@@ -17,18 +22,22 @@
         <div class="panel-body" style="text-align: right" ng-transclude></div>
       </div>
   </script>
+  <div class="scheduledservices">
+    <%
 
-  <accordion close-others="oneAtATime">
+  </div>
 
-    <accordion-group heading="Clean my room" class="clean" template-url="group-template.html">     
+  <div class="all">
+    <accordion close-others="oneAtATime">
+      <accordion-group heading="Clean my room" class="clean" template-url="group-template.html">
       <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
-        <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+        <h4>Sceduling cleaning service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
 
-        <datetimepicker min-date="minDate" hour-step="hourStep" 
-        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        <datetimepicker min-date="minDate" hour-step="hourStep"
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
         date-format="dd-MMM-yyyy" date-options="dateOptions"
-        date-disabled="disabled(date, mode)" 
+        date-disabled="disabled(date, mode)"
         readonly-date="false"
         readonly-time="false"></datetimepicker>
 
@@ -42,10 +51,10 @@
 
         <h4>Sceduling valet service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
 
-        <datetimepicker min-date="minDate" hour-step="hourStep" 
-        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        <datetimepicker min-date="minDate" hour-step="hourStep"
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
         date-format="dd-MMM-yyyy" date-options="dateOptions"
-        date-disabled="disabled(date, mode)" 
+        date-disabled="disabled(date, mode)"
         readonly-date="false"
         readonly-time="false"></datetimepicker>
 
@@ -57,12 +66,12 @@
     <accordion-group heading="Wake me up" class="alarm" template-url="group-template.html">
       <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
-        <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
+        <h4>Sceduling wakeup service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
 
-        <datetimepicker min-date="minDate" hour-step="hourStep" 
-        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        <datetimepicker min-date="minDate" hour-step="hourStep"
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
         date-format="dd-MMM-yyyy" date-options="dateOptions"
-        date-disabled="disabled(date, mode)" 
+        date-disabled="disabled(date, mode)"
         readonly-date="false"
         readonly-time="false"></datetimepicker>
 
@@ -76,10 +85,10 @@
 
         <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
 
-        <datetimepicker min-date="minDate" hour-step="hourStep" 
-        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian" 
+        <datetimepicker min-date="minDate" hour-step="hourStep"
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
         date-format="dd-MMM-yyyy" date-options="dateOptions"
-        date-disabled="disabled(date, mode)" 
+        date-disabled="disabled(date, mode)"
         readonly-date="false"
         readonly-time="false"></datetimepicker>
 
@@ -88,9 +97,16 @@
       </div>
     </accordion-group>
 
-    <!-- <accordion-group heading="Feed me" class="food" template-url="group-template.html" >
+
+
+
+    <div ng-repeat="alert in alerts.FeedMe track by $index" template-url="alert-template.html">
+      <div>{{alert}}</div>
+    </div>
+
+    <accordion-group heading="Feed me" class="food" template-url="group-template.html" >
       <div ng-controller="FeedMeController">
-        
+
         <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
           <h4>Sceduling room service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -105,23 +121,21 @@
           <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
 
         </div>
-  <!adding -->
-       <!--  <div ng-controller="ThumbnailSelectorController" class="container">
 
 
-          <a href="#" ng-repeat="thumb in available_thumbnails" class="magic-thumbnail" ng-click="selectOption(thumb)" ng-selected="thumb.selected"> 
+
+        <div ng-controller="ThumbnailSelectorController" class="container">
+          <a href="#" ng-repeat="thumb in available_thumbnails" class="magic-thumbnail" ng-click="selectOption(thumb)" ng-selected="thumb.selected">
             <img src={{thumb.src}} />
           </a>
-
-
         </div>
 
         <button ng-click="addScheduleFoodService()">Schedule</button>
 
       </div>
 
-    </accordion-group> -->
-
+    </accordion-group>
+  </div>
 
   </accordion>
 
