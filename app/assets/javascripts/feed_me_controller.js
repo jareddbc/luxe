@@ -50,7 +50,8 @@ angular.module('luxe').controller('FeedMeController', [ '$scope', '$timeout', '$
 		$http.post('/api/services', payload).then(
       function(response){
         $scope.alert('FeedMe', 'Your service was scheduled!', payload);
-        debugger
+        debugger;
+
       },
       function(response){
         $scope.alert('FeedMe', 'FAILED TO SAVE scheduled food service');

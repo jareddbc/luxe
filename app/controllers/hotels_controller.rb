@@ -8,6 +8,10 @@ class HotelsController < ApplicationController
     @hotel = Hotel.new(hotel_params)
     if @hotel.save
       session[:hotel_id] = @hotel.id
+      Calendar.client
+      newCalendar = Calendar.create(@hotel.name)
+      @hotel.calendar_id = newCalendar.instance_variable_get(:@id)
+      @hotel.save
       redirect_to '/login', :notice => "Signed up!"
     else
       render :new

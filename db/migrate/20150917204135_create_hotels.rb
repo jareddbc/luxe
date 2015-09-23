@@ -6,6 +6,7 @@ class CreateHotels < ActiveRecord::Migration
       t.string :password_digest
       t.string :address
       t.text :amenities
+      t.string :calendar_id
       t.boolean :terms, default: false
 
       t.timestamps null: false

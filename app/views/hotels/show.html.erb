@@ -1,7 +1,6 @@
 <%= link_to "Log out", logout_path %>
 
 
-
 <div>
   <%= @hotel.id %>
   <h2><%= @hotel.name %></h2>
@@ -86,6 +85,10 @@
      <p>
       <%= f.label :phone %><br />
       <%= f.text_field :phone %>
+    </p>
+    <p>
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
     </p>
     <p>
       <%= f.label :room_number %><br />

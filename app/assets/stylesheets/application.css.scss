@@ -6,6 +6,7 @@
 html,body{
 	height: 100%;
 	width: 100%;
+  background-color: black;
 }
 .header{
 	background-color: black;
@@ -101,6 +102,8 @@ body > .page{
 	background-image: asset-url("bed.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+   box-shadow: none;
+
 }
 .car .panel-heading{
 	background-image: asset-url("car.jpg");
@@ -113,5 +116,25 @@ body > .page{
 .spa .panel-heading{
 	background-image: asset-url("spa.jpg");
 	background-size: cover;
+}
+.scheduletext .ng-binding {
+  color: white;
+  font-size: 18px;
+}
 
+.hover08 figure img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.hover08 figure:hover img {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
+}
+.hotelsignup {
+  background-color: black;
+  padding-left: 3em;
+  font-family: "Raleway";
+  color: white;
 }
