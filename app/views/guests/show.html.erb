@@ -17,19 +17,19 @@
         </h4>
       </div>
 
-
       <div class="panel-collapse collapse" collapse="!isOpen">
         <div class="panel-body" style="text-align: right" ng-transclude></div>
       </div>
   </script>
-  <div class="scheduledservices">
-    <%
-
-  </div>
 
   <div class="all">
+    <div ng-repeat="alert in alerts.CleanMe track by $index" template-url="alert-template.html" class="scheduletext">
+      <div>{{alert}}</div>
+    </div>
+
     <accordion close-others="oneAtATime">
       <accordion-group heading="Clean my room" class="clean" template-url="group-template.html">
+      <div ng-controller="CleanMeController">
       <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
         <h4>Sceduling cleaning service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
@@ -42,7 +42,10 @@
         readonly-time="false"></datetimepicker>
 
         <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+         <button ng-click="addScheduleCleanService()">Schedule</button>
       </div>
+    </div>
+
     </accordion-group>
 
 
@@ -100,7 +103,7 @@
 
 
 
-    <div ng-repeat="alert in alerts.FeedMe track by $index" template-url="alert-template.html">
+    <div ng-repeat="alert in alerts.FeedMe track by $index" template-url="alert-template.html" class="scheduletext">
       <div>{{alert}}</div>
     </div>
 

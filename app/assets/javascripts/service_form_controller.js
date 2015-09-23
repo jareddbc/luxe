@@ -29,6 +29,7 @@ angular.module('luxe')
 
     $scope.alerts = {
       'FeedMe': [],
+      'CleanMe': [],
     };
     $scope.alert = function(type, message, payload){
       $scope.alerts[type].push(message + " " + payload.service.starts_at_date);
