@@ -43,6 +43,7 @@ GEM
       extlib (>= 0.9.15)
       multi_json (>= 1.0.0)
     bcrypt (3.1.10)
+    bootstrap_form (2.3.0)
     bower-rails (0.10.0)
     builder (3.2.2)
     byebug (5.0.0)
@@ -256,6 +257,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt
+  bootstrap_form
   bower-rails
   dotenv-rails
   google-api-client
@@ -272,3 +274,6 @@ DEPENDENCIES
   sidekiq
   sidekiq-cron (~> 0.3.0)
   twilio-ruby (~> 4.2.1)
+
+BUNDLED WITH
+   1.10.6

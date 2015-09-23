@@ -15,7 +15,7 @@ angular.module('luxe').controller('FeedMeController', [ '$scope', '$timeout', '$
        if($scope.available_thumbnails[i].selected){
          items.push($scope.available_thumbnails[i].data);
        }
-  	 } 
+  	 }
   	 return items;
   }
 
@@ -39,16 +39,24 @@ angular.module('luxe').controller('FeedMeController', [ '$scope', '$timeout', '$
 	];
 
 	$scope.addScheduleFoodService = function(){
-		debugger;
-   
+
     var payload = {
     	service: {
-    			starts_at_date : $scope.date,
-    			special_request : build_items_list().join(',')
+  			starts_at_date : $scope.date,
+  			special_request : build_items_list().join(',')
     	}
     };
 
-		var res = $http.post('/api/services', payload);
+		$http.post('/api/services', payload).then(
+      function(response){
+        $scope.alert('FeedMe', 'Your service was scheduled!', payload);
+        debugger;
+
+      },
+      function(response){
+        $scope.alert('FeedMe', 'FAILED TO SAVE scheduled food service');
+      }
+    );
 	}
 
 }]);

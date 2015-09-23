@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150917205721) do
     t.string   "last_name"
     t.integer  "room_number"
     t.string   "phone"
+    t.string   "email"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
