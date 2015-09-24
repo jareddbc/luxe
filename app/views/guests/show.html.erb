@@ -29,7 +29,7 @@
     </div>
 
     <accordion close-others="oneAtATime">
-      <accordion-group heading="Room Cleaning" class="clean" template-url="group-template.html" style="border: none">
+      <accordion-group heading="Room Cleaning" class="clean" template-url="group-template.html" style="border: none;">
         <div ng-controller="CleanMeController">
           <div ng-controller="DateTimePickerDemoCtrl" class="container">
             <h4>Scheduling cleaning service for: {{date | date:'shortTime' }}, {{date | date:'fullDate' }}</h4>
@@ -101,11 +101,11 @@
         date-disabled="disabled(date, mode)"
         readonly-date="false"
         readonly-time="false"></datetimepicker>
-          <div ng-controller="ThumbnailSelectorController" class="container">
+    <!--       <div ng-controller="ThumbnailSelectorController" class="container">
           <a href="#" ng-repeat="thumb in available_thumbnails" class="magic-thumbnail" ng-click="selectOption(thumb)" ng-selected="thumb.selected">
             <img src={{thumb.src}} />
           </a>
-        </div>
+        </div> -->
 
         <button class="btn btn-default" ng-click="addScheduleSpaService(spaData)">Schedule</button>
         </div>
