@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get '/incoming/:key' => 'sessions#create'
   post '/incoming' => 'sessions#create'
 
+  get '/about' => 'sessions#about'
+
   get '/logout' => 'sessions#destroy'
   # get '/signup' => 'hotels#new'
 
