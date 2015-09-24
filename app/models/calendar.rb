@@ -147,7 +147,7 @@ class Calendar
       body:       JSON.dump(rule),
     )
 
-    raise "failed to grand public reader access to calendar #{id}: #{response.error_message}" unless response.success?
+    raise "failed to grant public reader access to calendar #{id}: #{response.error_message}" unless response.success?
 
     self
   end
