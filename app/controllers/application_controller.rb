@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  # protect_from_forgery with: :exception
 
   def current_user
     @current_user ||= Hotel.find(session[:hotel_id]) if session[:hotel_id]

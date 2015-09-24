@@ -1,19 +1,19 @@
+<div class="whole-page">
 <div class="logout">
-<%= link_to "Log out", logout_path %>
+  <%= link_to "Log out", logout_path %>
 </div>
-<input type="button" class="calendar_button btn btn-default" value="Show Calendar">
-  <div class="calendar">
-    <%= render "calendar" %>
-  </div>
-  <br>
-<div class="hotel-info">
-  <h2><%= @hotel.name %></h2>
-  <h3><%= @hotel.address %></h3>
-  <h3><%= @hotel.amenities %></h3>
+    <h1 id="tag">Live LUXE at The W </h1>
+
+</div>
+
+<div class="hotel-image">
 </div>
   <div class="hotel-show-page">
-
-  </br>
+    <div class="hotel-info">
+      <h2><%= @hotel.name %></h2>
+      <h3><%= @hotel.address %></h3>
+      <h3><%= @hotel.amenities %></h3>
+    </div>
     <div class="new-guest-form">
     <h4>New Guest:</h4>
     <%= form_for :guest, url: guests_path do |f| %>
@@ -33,9 +33,15 @@
         <%= f.label :room_number %><br />
         <%= f.text_field :room_number %>
       </p>
-      <p class="button"><%= f.submit "Submit" %></p>
+     <%= f.submit "Submit", :class => "btn btn-default" %>
     <% end %>
   </div>
+
+ <input type="button" class="calendar_button btn btn-default" value="Show Calendar">
+  <div class="calendar">
+    <%= render "calendar" %>
+  </div>
+
   <div>
     <% @guests.each do |guest| %>
       <p><b>Room Number: </b><%= guest.room_number %></p>
@@ -43,22 +49,7 @@
       <p><b>Phone: </b><%= guest.phone %></p>
     <% end %>
   </div>
-  <div>
-  <table border="2">
-    <% @services.each do |service| %>
-     <% @guests.each do |guest| %>
-      <% if service.guest_id == guest.id %>
-      <tr>
-       <th> Room: <%= guest.room_number %> </th>
-          <% end %>
-        </tr>
-        <td><%= service.title %></td>
-        <td><%= service.special_request %></td>
-        <td><%= service.starts_at_date %></td>
-        <td><%= service.starts_at_time %></td>
-        <% end %>
-      <% end %>
-
-
-  </table>
+  <div class="bottom-bar">
   </div>
+</div>
+
