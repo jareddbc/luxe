@@ -18,7 +18,11 @@ class Calendar
 
     def connect!
       @client = Google::APIClient.new(:application_name => 'LUXE', :application_version => '1')
+      puts "CONNECT!"
+      puts GoogleCalendarKey.get
       key = Google::APIClient::PKCS12.load_key(GoogleCalendarKey.get, 'notasecret')
+      puts "CONNECT2"
+      puts key
       service_account = Google::APIClient::JWTAsserter.new(
         CLIENT_EMAIL,
         ['https://www.googleapis.com/auth/calendar'],
