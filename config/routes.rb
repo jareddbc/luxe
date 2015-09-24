@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-
+  get '/signup' => 'hotels#new'
+  post '/signup' => 'hotels#create'
   get '/login' => 'sessions#hotel'
   post '/login' => 'sessions#create'
 
@@ -15,7 +16,7 @@ Rails.application.routes.draw do
   get '/about' => 'sessions#about'
 
   get '/logout' => 'sessions#destroy'
-  get '/signup' => 'hotels#new'
+  # get '/signup' => 'hotels#new'
   post '/hotels' => 'hotels#create'
   get '/hotels/:id' => 'hotels#show'
   post '/hotels/show' => 'hotels#show'

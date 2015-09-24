@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  # protect_from_forgery with: :exception
 
   def current_user
     @current_user ||= Hotel.find(session[:hotel_id]) if session[:hotel_id]
@@ -19,4 +18,5 @@ class ApplicationController < ActionController::Base
     logger.info "SCHEDULING text message: #{to}, #{body}"
     SendTextMessageWorker.perform_async(to, body)
   end
+
 end

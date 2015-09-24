@@ -18,19 +18,8 @@ class Api::ServicesController < ApplicationController
     else
     	render json:  {:error => "Failed to create Service", :errors => @service.errors}
     end
-
   end
 
-  # def show
-  #   @service = Service.find_by(id: params[:id])
-  # end
-
-  # def update
-  #   @guest = Guest.find(session[:guest_id])
-  #   @service = Service.find(params[:id])
-  #   @service.update_attributes(:title => params[:title], :starts_at_date => params[:starts_at_date], :starts_at_time => params[:starts_at_time], :special_request => params[:special_request])
-  #   redirect_to @guest
-  # end
 
   private
   def service_params

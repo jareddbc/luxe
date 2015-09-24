@@ -1,7 +1,7 @@
 <%
   src = URI.parse("https://www.google.com/calendar/embed")
   src.query = {
-    # src: @hotel.calendar_id,
+    src: @hotel.calendar_id,
     ctz: "America/Los_Angeles",
   }.to_query
 %>
