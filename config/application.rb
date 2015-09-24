@@ -29,7 +29,6 @@ module Luxe
     config.assets.initialize_on_precompile = false
 
     config.active_job.queue_adapter = :sidekiq
-
-    config.redis = ENV['REDIS_URL'] || 'redis://127.0.0.1:6379/0'
+  config.redis = ENV['REDIS_URL'] || 'redis://127.0.0.1:6379/0'
   end
 end
