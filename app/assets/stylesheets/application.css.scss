@@ -85,19 +85,20 @@ body > .page{
 .panel-heading{
 	background-image: url(http://img.archiexpo.com/images_ae/photo-g/contemporary-hotel-room-furniture-set-52432-8460571.jpg);
 	background-position: center;
-	height: 16em;
+	height: 14em;
 	text-align: center;
 	font-family: 'Raleway', sans-serif;
 }
 
+
 .ng-binding{
-	font-size: 30px;
+	font-size: 18px;
 	color: black;
 }
 .all{
-  padding-top: 6em;
+  padding-top: 5em;
   background-image: url("luxe-logo.png");
-  background-size: 10%;
+  background-size: 150px;
   background-position: fixed;
   top: 10px;
   background-repeat: no-repeat;
@@ -126,16 +127,6 @@ body > .page{
   font-size: 18px;
 }
 
-.hover08 figure img {
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-}
-.hover08 figure:hover img {
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
-}
 .hotelsignup {
   padding-left: 3em;
   font-family: "Raleway";
@@ -216,14 +207,7 @@ th, td {
 .error_messages li{
   list-style-type: none;
 }
-.btn-sm {
-  background-color: #1e5b4d;
-  border: none;
-}
 
-.btn-success:hover {
-  background-color: #1e5b4d;
-}
 .btn-default{
   font-size: 16px;
 }
@@ -309,3 +293,4 @@ padding-left: 1em;
   height: 100%;
   background-size:cover;
 }
+
