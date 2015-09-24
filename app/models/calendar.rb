@@ -3,10 +3,9 @@ require 'google/api_client'
 
 class Calendar
 
-  # MOVE ME TO .env
   GOOGLE_EMAIL = ENV['GOOGLE_EMAIL']
-  CLIENT_EMAIL = JSON.parse(Rails.root.join('config/google_calendar_key.json').read)['client_email']
-  # CLIENT_EMAIL = id
+  CLIENT_EMAIL = ENV['GOOGLE_CLIENT_EMAIL']
+
   class << self
 
     def client
@@ -19,8 +18,7 @@ class Calendar
 
     def connect!
       @client = Google::APIClient.new(:application_name => 'LUXE', :application_version => '1')
-      key_file_path = Rails.root.join('config','google_calendar_key.p12').to_s
-      key = Google::APIClient::PKCS12.load_key(key_file_path, 'notasecret')
+      key = Google::APIClient::PKCS12.load_key(GoogleCalendarKey.get, 'notasecret')
       service_account = Google::APIClient::JWTAsserter.new(
         CLIENT_EMAIL,
         ['https://www.googleapis.com/auth/calendar'],
@@ -152,6 +150,12 @@ class Calendar
     raise "failed to grand public reader access to calendar #{id}: #{response.error_message}" unless response.success?
 
     self
+  end
+
+  module GoogleCalendarKey
+    def self.get
+      Base64.decode64 ENV['GOOGLE_CALENDAR_KEY']
+    end
   end
 
 

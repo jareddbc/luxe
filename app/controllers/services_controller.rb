@@ -54,7 +54,6 @@ class ServicesController < ApplicationController
     p params
     params.require(:service).permit(:title, :starts_at_date, :starts_at_time)
   end
-end
 
 # # Creating object for Calendar Event
 
