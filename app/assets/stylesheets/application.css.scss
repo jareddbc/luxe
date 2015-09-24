@@ -87,6 +87,7 @@ body > .page{
 	background-position: center;
 	height: 14em;
 	text-align: center;
+
 	font-family: 'Raleway', sans-serif;
 }
 
@@ -184,6 +185,7 @@ th, td {
 }
 .hotel-login {
   padding-left: 3em;
+  height: 100%;
 
 }
 .hotel-login h1 {
@@ -257,6 +259,8 @@ padding-left: 1em;
 
 .hotel-image{
   background-image: url(w-hotel.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 50%;
 }
 #tag{
