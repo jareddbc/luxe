@@ -1,52 +1,18 @@
 <div class="logout">
 <%= link_to "Log out", logout_path %>
-<input type="button" class="calendar_button" value="Show Calendar">
+</div>
+<input type="button" class="calendar_button btn btn-default" value="Show Calendar">
   <div class="calendar">
     <%= render "calendar" %>
   </div>
-<div>
-
+  <br>
+<div class="hotel-info">
   <h2><%= @hotel.name %></h2>
   <h3><%= @hotel.address %></h3>
   <h3><%= @hotel.amenities %></h3>
 </div>
   <div class="hotel-show-page">
-    <div class="hotel-info">
 
-      <h2><%= @hotel.name %></h2>
-      <h3><%= @hotel.address %></h3>
-      <h3><%= @hotel.amenities %></h3>
-    </div>
-<!--   <div>
-    <h2>Our Menu:</h2>
-    <%# if !@menus.nil? %>
-    <%# @menus.each do |menu_item| %>
-    <h3><%# menu_item.name %></h3>
-    <h4><%# menu_item.description %></h4>
-      <%# if !menu_item.name.nil? %>
-        <%# link_to "Edit", edit_menu_path(menu_item), :method => :update %>
-        <%# link_to "Delete", menu_path(menu_item), method: :delete %>
-      <%# end %>
-    <%# end %>
-    <%# end %>
-  </div>
-  </br> -->
-
-  <!-- div>
-    <h4>Menu:</h4>
-    <%# form_for :menu, url: menu_index_path do |f| %>
-      <p>
-        <%# f.label :name %>
-        <%# f.text_field :name %>
-      </p>
-      <p>
-        <%#f.label :description %>
-        <%# f.text_field :description %>
-      </p>
-      <p class#"button"><%# f.submit "Submit" %></p>
-    <%# end %>
-  </div>
- -->
   </br>
     <div class="new-guest-form">
     <h4>New Guest:</h4>
@@ -96,31 +62,3 @@
 
   </table>
   </div>
-
-<div>
-  <h4>New Guest:</h4>
-  <%= form_for :guest, url: guests_path do |f| %>
-    <p>
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name %>
-    </p>
-    <p>
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name %>
-    </p>
-     <p>
-      <%= f.label :phone %><br />
-      <%= f.text_field :phone %>
-    </p>
-    <p>
-      <%= f.label :email %><br />
-      <%= f.text_field :email %>
-    </p>
-    <p>
-      <%= f.label :room_number %><br />
-      <%= f.text_field :room_number %>
-    </p>
-    <p class="button"><%= f.submit "Submit" %></p>
-  <% end %>
-
-</div>
