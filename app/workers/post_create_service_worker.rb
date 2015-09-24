@@ -5,8 +5,8 @@ class PostCreateServiceWorker
     service = Service.find(id)
     hotel = service.hotel
     guest = service.guest
-    send_text_message(service, hotel, guest)
     create_service_calendar_event(service, hotel, guest)
+    send_text_message(service, hotel, guest)
   end
 
 
@@ -23,6 +23,8 @@ Have a great stay!
   end
 
   def create_service_calendar_event(service, hotel, guest)
+    p "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+    p hotel.id
     startTime = service.starts_at_date
     endTime = startTime + 1.hour
     hotel.calendar.create_calendar_event(

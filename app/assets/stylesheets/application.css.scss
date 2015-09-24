@@ -6,7 +6,7 @@
 html,body{
 	height: 100%;
 	width: 100%;
-  background-color: black;
+  /*background-color: black;*/
 }
 
 
@@ -161,8 +161,9 @@ body > .page{
   height: 100px;
   text-align: right;
   font-size: 20px;
-  padding-top: 2em;
-  padding-left: 1em;
+  padding-top: 1em;
+  padding-left: 3em;
+
 }
 
 .logout a{
@@ -170,6 +171,10 @@ body > .page{
   text-decoration: none;
   padding-right: 2em;
   padding-top: 2em;
+}
+.logout h1{
+  color: white;
+  padding-right: 1em;
 }
 .hotelsignup h1{
   color: white;
@@ -258,6 +263,39 @@ th, td {
   color: white;
 }
 
-.calendar{
-  margin: 0 auto;
+
+.hotel-info{
+  color: black;
+}
+
+#hotel_amenities{
+  color: black;
+}
+
+.hotel-info{
+  padding-left: 1em;
+}
+
+.hotel-show-page{
+padding-top: 1em;
+padding-left: 1em;
+}
+
+.hotel-image{
+  background-image: url(w-hotel.jpg);
+  height: 50%;
+}
+#tag{
+  color: white;
+}
+
+.bottom_bar{
+  background-image: url();
+}
+.whole-page{
+  margin: 2em;
+}
+
+.guest-page{
+  margin: 2em;
 }
