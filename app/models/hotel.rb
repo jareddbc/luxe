@@ -3,6 +3,10 @@ require 'bcrypt'
 class Hotel < ActiveRecord::Base
   has_secure_password
 
+  has_many :guests,   dependent: :destroy
+  has_many :menus,    dependent: :destroy
+  has_many :services, dependent: :destroy
+
   validates_presence_of :name
   validates_uniqueness_of :name
   validates_presence_of :address
@@ -13,7 +17,7 @@ class Hotel < ActiveRecord::Base
   validates_uniqueness_of :email
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
 
-
+  after_create :create_calendar!
 
   def self.authenticate(email, password)
     hotel = find_by_email(email)
@@ -37,6 +41,12 @@ class Hotel < ActiveRecord::Base
 
   def calendar=(calendar)
     self.calendar_id = calendar ? calendar.id : nil
+  end
+
+  private
+
+  def create_calendar!
+    update calendar: Calendar.create(self.name)
   end
 
 end

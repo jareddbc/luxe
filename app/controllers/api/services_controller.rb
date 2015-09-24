@@ -14,12 +14,6 @@ class Api::ServicesController < ApplicationController
     @service.hotel = @hotel = @guest.hotel
     @service.guest = @guest
     if @service.save
-
-    	begin
-        send_text_message @guest.phone, render_to_string('created_message.text')
-      rescue => e
-      	p "ERROR SENDING TEXT MESSAGE"
-      end
     	render json:  {:error => nil, :service => @service}
     else
     	render json:  {:error => "Failed to create Service", :errors => @service.errors}
