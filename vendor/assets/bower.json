@@ -5,6 +5,7 @@
     "angular": "latest",
     "bootstrap-sass-official": "latest",
     "angular-animate": "latest",
-    "angular-bootstrap": "latest"
+    "angular-bootstrap": "latest",
+    "components-font-awesome": "latest"
   }
 }
