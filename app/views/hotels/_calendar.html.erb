@@ -1,0 +1,8 @@
+<%
+  src = URI.parse("https://www.google.com/calendar/embed")
+  src.query = {
+    # src: @hotel.calendar_id,
+    ctz: "America/Los_Angeles",
+  }.to_query
+%>
+<iframe src="<%= src.to_s %>" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>

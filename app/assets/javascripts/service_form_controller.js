@@ -29,8 +29,14 @@ angular.module('luxe')
 
     $scope.alerts = {
       'FeedMe': [],
+      'CleanMe': [],
+      'Valet': [],
+      'WakeMe': [],
+      'Spa': []
     };
-    $scope.alert = function(type, message, payload){
-      $scope.alerts[type].push(message + " " + payload.service.starts_at_date);
+
+    $scope.alert = function(type, message){
+      $scope.alerts[type].push(message);
     };
+
   });

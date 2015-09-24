@@ -1,5 +1,4 @@
 <div ng-controller="ServiceFormController">
-
   <script type="text/ng-template" id="alert-template.html">
     <div class="alert alert-success">
       <div ng-transclude></div>
@@ -17,126 +16,132 @@
         </h4>
       </div>
 
-
       <div class="panel-collapse collapse" collapse="!isOpen">
         <div class="panel-body" style="text-align: right" ng-transclude></div>
       </div>
   </script>
-  <div class="scheduledservices">
-    <%
 
-  </div>
+<!--   <div class="hover08">
+    <div>
+      <figure><img src="http://www.hotel-icon.com/~/media/Images/Hotel_ICON_revamp/rooms/Above%20and%20Beyond/club-38-harbour_1.ashx"/></figure>
+    </div>
+  </div> -->
 
   <div class="all">
-    <accordion close-others="oneAtATime">
-      <accordion-group heading="Clean my room" class="clean" template-url="group-template.html">
-      <div ng-controller="DateTimePickerDemoCtrl" class="container">
 
-        <h4>Sceduling cleaning service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
-
-        <datetimepicker min-date="minDate" hour-step="hourStep"
-        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
-        date-format="dd-MMM-yyyy" date-options="dateOptions"
-        date-disabled="disabled(date, mode)"
-        readonly-date="false"
-        readonly-time="false"></datetimepicker>
-
-        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-      </div>
-    </accordion-group>
-
-
-    <accordion-group heading="Return my valet" class="car" template-url="group-template.html">
-      <div ng-controller="DateTimePickerDemoCtrl" class="container">
-
-        <h4>Sceduling valet service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
-
-        <datetimepicker min-date="minDate" hour-step="hourStep"
-        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
-        date-format="dd-MMM-yyyy" date-options="dateOptions"
-        date-disabled="disabled(date, mode)"
-        readonly-date="false"
-        readonly-time="false"></datetimepicker>
-
-        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-
-      </div>
-    </accordion-group>
-
-    <accordion-group heading="Wake me up" class="alarm" template-url="group-template.html">
-      <div ng-controller="DateTimePickerDemoCtrl" class="container">
-
-        <h4>Sceduling wakeup service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
-
-        <datetimepicker min-date="minDate" hour-step="hourStep"
-        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
-        date-format="dd-MMM-yyyy" date-options="dateOptions"
-        date-disabled="disabled(date, mode)"
-        readonly-date="false"
-        readonly-time="false"></datetimepicker>
-
-        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-
-      </div>
-    </accordion-group>
-
-    <accordion-group heading="Book a spa service" class="spa" template-url="group-template.html">
-	  	<div ng-controller="DateTimePickerDemoCtrl" class="container">
-
-        <h4>Sceduling spa service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
-
-        <datetimepicker min-date="minDate" hour-step="hourStep"
-        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
-        date-format="dd-MMM-yyyy" date-options="dateOptions"
-        date-disabled="disabled(date, mode)"
-        readonly-date="false"
-        readonly-time="false"></datetimepicker>
-
-        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-
-      </div>
-    </accordion-group>
-
-
-
-
-    <div ng-repeat="alert in alerts.FeedMe track by $index" template-url="alert-template.html">
+    <div ng-repeat="alert in alerts.CleanMe track by $index" template-url="alert-template.html" class="scheduletext">
       <div>{{alert}}</div>
     </div>
 
-    <accordion-group heading="Feed me" class="food" template-url="group-template.html" >
-      <div ng-controller="FeedMeController">
+    <accordion close-others="oneAtATime">
+      <accordion-group heading="Room Cleaning" class="clean" template-url="group-template.html" style="border: none">
+        <div ng-controller="CleanMeController">
+          <div ng-controller="DateTimePickerDemoCtrl" class="container">
+            <h4>Scheduling cleaning service for: {{date | date:'shortTime' }}, {{date | date:'fullDate' }}</h4>
+            <datetimepicker min-date="minDate" hour-step="hourStep"
+            minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
+            date-format="dd-MMM-yyyy" date-options="dateOptions"
+            date-disabled="disabled(date, mode)"
+            readonly-date="false"
+            readonly-time="false"></datetimepicker>
 
+            <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+            <button  class="btn btn-default" ng-click="addScheduleCleanService(cleanData)">Schedule</button>
+
+          </div>
+        </div>
+      </accordion-group>
+
+    <div ng-repeat="alert in alerts.Valet track by $index" template-url="alert-template.html" class="scheduletext">
+      <div>{{alert}}</div>
+    </div>
+
+    <accordion-group heading="Valet" class="car" template-url="group-template.html" style="border: none">
+      <div ng-controller="ValetController">
         <div ng-controller="DateTimePickerDemoCtrl" class="container">
-
-          <h4>Sceduling room service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
-
+          <h4>Scheduling valet service for: {{date | date:'shortTime' }}, {{date | date:'fullDate' }}</h4>
           <datetimepicker min-date="minDate" hour-step="hourStep"
           minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
           date-format="dd-MMM-yyyy" date-options="dateOptions"
           date-disabled="disabled(date, mode)"
           readonly-date="false"
           readonly-time="false"></datetimepicker>
-
           <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-
+          <button class="btn btn-default" ng-click="addScheduleValet(valetData)">Schedule</button>
         </div>
+      </div>
+    </accordion-group>
 
+    <div ng-repeat="alert in alerts.WakeMe track by $index" template-url="alert-template.html" class="scheduletext">
+      <div>{{alert}}</div>
+    </div>
 
+    <accordion-group heading="Wake Up Call" class="alarm" template-url="group-template.html" style="border: none">
+      <div ng-controller="WakeMeController">
+        <div ng-controller="DateTimePickerDemoCtrl" class="container">
+          <h4>Scheduling wakeup service for: {{date | date:'shortTime' }}, {{date | date:'fullDate' }}</h4>
+          <datetimepicker min-date="minDate" hour-step="hourStep"
+          minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
+          date-format="dd-MMM-yyyy" date-options="dateOptions"
+          date-disabled="disabled(date, mode)"
+          readonly-date="false"
+          readonly-time="false"></datetimepicker>
+          <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+          <button class="btn btn-default" ng-click="addScheduleWakeUpService(alarmData)">Schedule</button>
+        </div>
+      </div>
+    </accordion-group>
 
+    <div ng-repeat="alert in alerts.Spa track by $index" template-url="alert-template.html" class="scheduletext">
+      <div>{{alert}}</div>
+    </div>
+
+    <accordion-group heading="Spa" class="spa" template-url="group-template.html" style="border: none">
+      <div ng-controller="SpaController">
+	  	  <div ng-controller="DateTimePickerDemoCtrl" class="container">
+        <h4>Scheduling spa service for: {{date | date:'shortTime' }}, {{date | date:'fullDate' }}</h4>
+        <datetimepicker min-date="minDate" hour-step="hourStep"
+        minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
+        date-format="dd-MMM-yyyy" date-options="dateOptions"
+        date-disabled="disabled(date, mode)"
+        readonly-date="false"
+        readonly-time="false"></datetimepicker>
+          <div ng-controller="ThumbnailSelectorController" class="container">
+          <a href="#" ng-repeat="thumb in available_thumbnails" class="magic-thumbnail" ng-click="selectOption(thumb)" ng-selected="thumb.selected">
+            <img src={{thumb.src}} />
+          </a>
+        </div>
+        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+        <button class="btn btn-default" ng-click="addScheduleSpaService(spaData)">Schedule</button>
+        </div>
+      </div>
+    </accordion-group>
+
+  <!--   <div ng-repeat="alert in alerts.FeedMe track by $index" template-url="alert-template.html" class="scheduletext">
+      <div>{{alert}}</div>
+    </div>
+
+    <accordion-group heading="Feed me" class="food" template-url="group-template.html" style="border: none">
+      <div ng-controller="FeedMeController">
+        <div ng-controller="DateTimePickerDemoCtrl" class="container">
+          <h4>Scheduling room service for: {{date | date:'shortTime' }}, {{date | date:'fullDate' }}</h4>
+          <datetimepicker min-date="minDate" hour-step="hourStep"
+          minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
+          date-format="dd-MMM-yyyy" date-options="dateOptions"
+          date-disabled="disabled(date, mode)"
+          readonly-date="false"
+          readonly-time="false"></datetimepicker>
+        </div>
         <div ng-controller="ThumbnailSelectorController" class="container">
           <a href="#" ng-repeat="thumb in available_thumbnails" class="magic-thumbnail" ng-click="selectOption(thumb)" ng-selected="thumb.selected">
             <img src={{thumb.src}} />
           </a>
         </div>
-
-        <button ng-click="addScheduleFoodService()">Schedule</button>
-
+        <button ng-click="addScheduleFoodService(foodData)">Schedule</button>
       </div>
+    </accordion-group> -->
 
-    </accordion-group>
   </div>
-
   </accordion>
 
 </div>
