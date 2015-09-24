@@ -9,8 +9,6 @@ class HotelsController < ApplicationController
     if @hotel.save
       # TODO rename to a method descining intslef. login?
       session[:hotel_id] = @hotel.id
-      @hotel.calendar = Calendar.create(@hotel.name)
-      @hotel.save
       redirect_to '/login', :notice => "Signed up!"
     else
       render :new

@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def send_text_message(to, body)
+    logger.info "SCHEDULING text message: #{to}, #{body}"
     SendTextMessageWorker.perform_async(to, body)
   end
 end
