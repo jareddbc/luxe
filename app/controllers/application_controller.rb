@@ -18,4 +18,5 @@ class ApplicationController < ActionController::Base
     logger.info "SCHEDULING text message: #{to}, #{body}"
     SendTextMessageWorker.perform_async(to, body)
   end
+
 end
