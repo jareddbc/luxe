@@ -181,7 +181,7 @@ body > .page{
 }
 
 table, th, td {
-  border: 2px solid red;
+
   color: black;
 }
 
@@ -218,4 +218,14 @@ th, td {
 .error_messages li{
   list-style-type: none;
 }
+.btn-sm {
+  background-color: #1e5b4d;
+  border: none;
+}
 
+.btn-success:hover {
+  background-color: #1e5b4d;
+}
+.btn-default{
+  font-size: 16px;
+}

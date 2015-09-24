@@ -46,7 +46,7 @@
             readonly-time="false"></datetimepicker>
 
             <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
-            <button ng-click="addScheduleCleanService(cleanData)">Schedule</button>
+            <button  class="btn btn-default" ng-click="addScheduleCleanService(cleanData)">Schedule</button>
 
           </div>
         </div>
@@ -66,7 +66,8 @@
           date-disabled="disabled(date, mode)"
           readonly-date="false"
           readonly-time="false"></datetimepicker>
-          <button ng-click="addScheduleValet(valetData)">Schedule</button>
+          <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+          <button class="btn btn-default" ng-click="addScheduleValet(valetData)">Schedule</button>
         </div>
       </div>
     </accordion-group>
@@ -85,7 +86,8 @@
           date-disabled="disabled(date, mode)"
           readonly-date="false"
           readonly-time="false"></datetimepicker>
-          <button ng-click="addScheduleWakeUpService(alarmData)">Schedule</button>
+          <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+          <button class="btn btn-default" ng-click="addScheduleWakeUpService(alarmData)">Schedule</button>
         </div>
       </div>
     </accordion-group>
@@ -109,7 +111,8 @@
             <img src={{thumb.src}} />
           </a>
         </div>
-        <button ng-click="addScheduleSpaService(spaData)">Schedule</button>
+        <button class="btn btn-success btn-sm" ng-click="dateTimeNow()" tooltip="Set date and time to now">Now</button>
+        <button class="btn btn-default" ng-click="addScheduleSpaService(spaData)">Schedule</button>
         </div>
       </div>
     </accordion-group>
