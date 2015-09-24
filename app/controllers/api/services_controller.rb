@@ -14,11 +14,11 @@ class Api::ServicesController < ApplicationController
     @service.hotel = @hotel = @guest.hotel
     @service.guest = @guest
     if @service.save
+
     	begin
         send_text_message @guest.phone, render_to_string('created_message.text')
       rescue => e
       	p "ERROR SENDING TEXT MESSAGE"
-
       end
     	render json:  {:error => nil, :service => @service}
     else
@@ -27,9 +27,23 @@ class Api::ServicesController < ApplicationController
 
   end
 
+  # def show
+  #   @service = Service.find_by(id: params[:id])
+  # end
+
+  # def update
+  #   @guest = Guest.find(session[:guest_id])
+  #   @service = Service.find(params[:id])
+  #   @service.update_attributes(:title => params[:title], :starts_at_date => params[:starts_at_date], :starts_at_time => params[:starts_at_time], :special_request => params[:special_request])
+  #   redirect_to @guest
+  # end
+
   private
   def service_params
     p params
     params.require(:service).permit(:title, :starts_at_date, :starts_at_time, :special_request)
   end
+
+
+
 end

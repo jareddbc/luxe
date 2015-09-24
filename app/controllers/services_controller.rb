@@ -54,38 +54,37 @@ class ServicesController < ApplicationController
     p params
     params.require(:service).permit(:title, :starts_at_date, :starts_at_time)
   end
-end
 
-# Creating object for Calendar Event
+# # Creating object for Calendar Event
 
 
-  def get_service_event(service, guest, hotel)
-    event = {}
-    event['summary'] = "service.title"
+#   def get_service_event(service, guest, hotel)
+#     event = {}
+#     event['summary'] = service.title
 
-    event['location'] = hotel.address
+#     event['location'] = hotel.address
 
-    event['description'] = nil
+#     event['description'] = nil
 
-    event['start'] = {'dateTime' => service.starts_at_time,
-    'timeZone' => 'America/Los_Angeles'}
+#     event['start'] = {'dateTime' => service.starts_at_time,
+#     'timeZone' => 'America/Los_Angeles'}
 
-    event['end'] = {
-      'dateTime' => service.starts_at_time,
-      'timeZone' => 'America/Los_Angeles'}
+#     event['end'] = {
+#       'dateTime' => service.starts_at_time,
+#       'timeZone' => 'America/Los_Angeles'}
 
-    event['attendees'] = {'email' => guest.email}
+#     event['attendees'] = {'email' => guest.email}
 
-    event['reminders'] = {
-      'useDefault' => false,
-      'overrides' => [
-        {'method' => 'email', 'minutes' => 24 * 60},
-        {'method' => 'popup', 'minutes' => 10},
-      ],
-     }
-    p event
-    p "$"*30
-    render json: event
-  end
+#     event['reminders'] = {
+#       'useDefault' => false,
+#       'overrides' => [
+#         {'method' => 'email', 'minutes' => 24 * 60},
+#         {'method' => 'popup', 'minutes' => 10},
+#       ],
+#      }
+#     p event
+#     p "$"*30
+#     render json: event
+#   end
 
 end
