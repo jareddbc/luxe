@@ -1,12 +1,12 @@
 //= require ./luxe
-
 angular.module('luxe').controller('FeedMeController', [ '$scope', '$timeout', '$http', function ($scope, $timeout, $http) {
 
-  $scope.date = new Date();
+  $scope.date = new Date;
   $scope.food_items = [];
 
+
   $scope.thumbnail_selected = function(thumbnail){
-     console.log(thumbnail);
+
   }
 
   function build_items_list(){
@@ -19,7 +19,6 @@ angular.module('luxe').controller('FeedMeController', [ '$scope', '$timeout', '$
   	 return items;
   }
 
-	// this feels wrong to Jared
 	$scope.available_thumbnails = [
 		{
 			data: "Cheeseburger",
@@ -38,20 +37,20 @@ angular.module('luxe').controller('FeedMeController', [ '$scope', '$timeout', '$
 		},
 	];
 
-	$scope.addScheduleFoodService = function(){
-
+	$scope.addScheduleFoodService = function(foodData){
+    var date = $scope.date;
     var payload = {
     	service: {
-  			starts_at_date : $scope.date,
-  			special_request : build_items_list().join(',')
+        title: 'Feed Me',
+  			starts_at_date : date
+
     	}
     };
 
 		$http.post('/api/services', payload).then(
       function(response){
-        $scope.alert('FeedMe', 'Your service was scheduled!', payload);
+        $scope.alert('FeedMe', 'Your service was scheduled for '+date);
         debugger;
-
       },
       function(response){
         $scope.alert('FeedMe', 'FAILED TO SAVE scheduled food service');

@@ -1,5 +1,4 @@
 <div ng-controller="ServiceFormController">
-
   <script type="text/ng-template" id="alert-template.html">
     <div class="alert alert-success">
       <div ng-transclude></div>
@@ -67,7 +66,7 @@
           date-disabled="disabled(date, mode)"
           readonly-date="false"
           readonly-time="false"></datetimepicker>
-          <button ng-click="addScheduleValet()">Schedule</button>
+          <button ng-click="addScheduleValet(valetData)">Schedule</button>
         </div>
       </div>
     </accordion-group>
@@ -86,7 +85,7 @@
           date-disabled="disabled(date, mode)"
           readonly-date="false"
           readonly-time="false"></datetimepicker>
-          <button ng-click="addScheduleWakeUpService()">Schedule</button>
+          <button ng-click="addScheduleWakeUpService(alarmData)">Schedule</button>
         </div>
       </div>
     </accordion-group>
@@ -105,13 +104,15 @@
         date-disabled="disabled(date, mode)"
         readonly-date="false"
         readonly-time="false"></datetimepicker>
-        <button ng-click="addScheduleSpaService()">Schedule</button>
+          <div ng-controller="ThumbnailSelectorController" class="container">
+          <a href="#" ng-repeat="thumb in available_thumbnails" class="magic-thumbnail" ng-click="selectOption(thumb)" ng-selected="thumb.selected">
+            <img src={{thumb.src}} />
+          </a>
+        </div>
+        <button ng-click="addScheduleSpaService(spaData)">Schedule</button>
         </div>
       </div>
     </accordion-group>
-
-
-
 
     <div ng-repeat="alert in alerts.FeedMe track by $index" template-url="alert-template.html" class="scheduletext">
       <div>{{alert}}</div>
@@ -119,37 +120,25 @@
 
     <accordion-group heading="Feed me" class="food" template-url="group-template.html" style="border: none">
       <div ng-controller="FeedMeController">
-
         <div ng-controller="DateTimePickerDemoCtrl" class="container">
-
           <h4>Sceduling room service for: <em>{{date | date:'shortTime' }}, {{date | date:'fullDate' }}</em></h4>
-
           <datetimepicker min-date="minDate" hour-step="hourStep"
           minute-step="minuteStep" ng-model="date" show-meridian="showMeridian"
           date-format="dd-MMM-yyyy" date-options="dateOptions"
           date-disabled="disabled(date, mode)"
           readonly-date="false"
           readonly-time="false"></datetimepicker>
-
-
-
         </div>
-
-
-
         <div ng-controller="ThumbnailSelectorController" class="container">
           <a href="#" ng-repeat="thumb in available_thumbnails" class="magic-thumbnail" ng-click="selectOption(thumb)" ng-selected="thumb.selected">
             <img src={{thumb.src}} />
           </a>
         </div>
-
-        <button ng-click="addScheduleFoodService()">Schedule</button>
-
+        <button ng-click="addScheduleFoodService(foodData)">Schedule</button>
       </div>
-
     </accordion-group>
-  </div>
 
+  </div>
   </accordion>
 
 </div>

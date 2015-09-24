@@ -1,16 +1,11 @@
 class Api::ServicesController < ApplicationController
-
 	before_filter do
-
     puts "BEFORE FILTER"
-
     p session[:guest_id]
-
     unless session[:guest_id]
       puts "RENDERING ERROR"
     	render json:  {:error => "Not Logged In"}
     end
-
 	end
 
   def create
@@ -43,14 +38,7 @@ class Api::ServicesController < ApplicationController
   #   redirect_to @guest
   # end
 
-  # def destroy
-  #   @service = Service.find_by(id: params[:id])
-  #   @service.destroy
-  #   redirect_to :back
-  # end
-
   private
-
   def service_params
     p params
     params.require(:service).permit(:title, :starts_at_date, :starts_at_time, :special_request)
