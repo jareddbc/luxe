@@ -24,8 +24,8 @@ Have a great stay!
 
   def create_service_calendar_event(service, hotel, guest)
     startTime = service.starts_at_date
-    endTime = start + 1.hour
-    hotel.calendar.create_event(
+    endTime = startTime + 1.hour
+    hotel.calendar.create_calendar_event(
       'summary' => "#{service.title}",
       'description' => "#{service.title} at #{hotel.name}",
       'location' => "#{hotel.name} #{hotel.address}",
